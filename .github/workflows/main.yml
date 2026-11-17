@@ -1,8 +1,11 @@
-name: Construire TENKALA CARE SOFTWARE pour Windows
+name: Construire et publier TENKALA CARE SOFTWARE pour Windows
 on:
   push:
     branches: [ main ]
+    paths-ignore: [ 'referentiel/**', '*.txt', 'manifest.json', 'sw.js', '*.png' ]
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   windows:
     runs-on: windows-latest
@@ -12,8 +15,24 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npm run dist
+      # 1. Fabrication de l'installateur (sans publication)
+      - run: npx electron-builder --win --publish never
+      # 2. Publication de la version (Release) avec latest.yml pour les mises a jour automatiques
+      - name: Publier la version sur GitHub Releases
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          V=$(node -p "require('./package.json').version")
+          if gh release view "v$V" >/dev/null 2>&1; then
+            echo "La version v$V existe deja : fichiers remplaces."
+            gh release upload "v$V" dist/*.exe dist/*.blockmap dist/latest.yml --clobber
+          else
+            gh release create "v$V" dist/*.exe dist/*.blockmap dist/latest.yml --title "TENKALA CARE SOFTWARE $V" --notes "Version $V. Les logiciels deja installes se mettent a jour automatiquement." --latest
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: TENKALA-CARE-SOFTWARE-Windows
-          path: dist/*.exe
+          path: |
+            dist/*.exe
+            dist/latest.yml
