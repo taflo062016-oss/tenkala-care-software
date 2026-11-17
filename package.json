@@ -1,22 +1,56 @@
 {
-  "name": "arbre-genealogique-tasso",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Arbre généalogique Tasso – application Android (Capacitor)",
+  "name": "tenkala-care-software",
+  "version": "1.0.7",
+  "description": "TENKALA CARE SOFTWARE - Logiciel de gestion des formations sanitaires. Conçu, vérifié et approuvé par NKENLIFACK Florent Tasso' Ndombou ; réalisé avec l'assistance de Claude (Anthropic) ; fabriqué et distribué via GitHub.",
+  "author": "NKENLIFACK Florent Tasso' Ndombou",
+  "main": "main.js",
   "scripts": {
-    "android:init": "cap add android && cap sync android",
-    "sync": "cap sync android",
-    "open": "cap open android",
-    "apk": "cap sync android && cd android && ./gradlew assembleDebug"
-  },
-  "dependencies": {
-    "@capacitor/android": "^6.1.2",
-    "@capacitor/core": "^6.1.2",
-    "@capacitor/filesystem": "^6.0.1",
-    "@capacitor/share": "^6.0.2",
-    "@capacitor/app": "^6.0.1"
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never",
+    "release": "electron-builder --win --publish always"
   },
   "devDependencies": {
-    "@capacitor/cli": "^6.1.2"
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "cm.tenkala.caresoftware",
+    "productName": "TENKALA CARE SOFTWARE",
+    "copyright": "© 2026 NKENLIFACK Florent Tasso' Ndombou",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "icon.ico"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "TENKALA CARE SOFTWARE",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "language": "1036",
+      "artifactName": "TENKALA-CARE-SOFTWARE-Installation-${version}.exe"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "taflo062016-oss",
+        "repo": "tenkala-care-software",
+        "releaseType": "release"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.9"
   }
 }
