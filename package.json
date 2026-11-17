@@ -1,0 +1,34 @@
+{
+  "name": "tenkala-care-software",
+  "version": "1.0.0",
+  "description": "TENKALA CARE SOFTWARE - Logiciel de gestion des formations sanitaires",
+  "author": "TENKALA CARE SOFTWARE",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "cm.tenkala.caresoftware",
+    "productName": "TENKALA CARE SOFTWARE",
+    "copyright": "TENKALA CARE SOFTWARE",
+    "files": ["main.js", "index.html", "icon.ico"],
+    "win": { "target": ["nsis"], "icon": "icon.ico" },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "TENKALA CARE SOFTWARE",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "language": "1036",
+      "artifactName": "TENKALA-CARE-SOFTWARE-Installation-${version}.exe"
+    }
+  }
+}
