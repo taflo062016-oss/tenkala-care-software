@@ -1,12 +1,13 @@
 {
   "name": "tenkala-care-software",
-  "version": "1.0.0",
-  "description": "TENKALA CARE SOFTWARE - Logiciel de gestion des formations sanitaires",
-  "author": "TENKALA CARE SOFTWARE",
+  "version": "1.0.4",
+  "description": "TENKALA CARE SOFTWARE - Logiciel de gestion des formations sanitaires. Conçu, vérifié et approuvé par NKENLIFACK Florent Tasso' Ndombou ; réalisé avec l'assistance de Claude (Anthropic) ; fabriqué et distribué via GitHub.",
+  "author": "NKENLIFACK Florent Tasso' Ndombou",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win --publish never"
+    "dist": "electron-builder --win --publish never",
+    "release": "electron-builder --win --publish always"
   },
   "devDependencies": {
     "electron": "^33.2.0",
@@ -15,9 +16,19 @@
   "build": {
     "appId": "cm.tenkala.caresoftware",
     "productName": "TENKALA CARE SOFTWARE",
-    "copyright": "TENKALA CARE SOFTWARE",
-    "files": ["main.js", "index.html", "icon.ico"],
-    "win": { "target": ["nsis"], "icon": "icon.ico" },
+    "copyright": "© 2026 NKENLIFACK Florent Tasso' Ndombou",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "icon.ico"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
     "nsis": {
       "oneClick": false,
       "perMachine": false,
@@ -29,6 +40,17 @@
       "uninstallerIcon": "icon.ico",
       "language": "1036",
       "artifactName": "TENKALA-CARE-SOFTWARE-Installation-${version}.exe"
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "taflo062016-oss",
+        "repo": "tenkala-care-software",
+        "releaseType": "release"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.9"
   }
 }

@@ -1,0 +1,27 @@
+TENKALA CARE SOFTWARE – Version Windows (projet GitHub)
+=======================================================
+
+Contenu du dépôt
+- index.html .......... le logiciel
+- main.js, preload.js . programme Windows (fenêtre, téléchargements, mise à jour automatique)
+- package.json ........ nom, numéro de version, fabrication de l'installateur
+- icon.ico ............ icône
+- .github/workflows ... fabrication automatique de l'installateur par GitHub
+- referentiel/ ........ fichiers lus en ligne par les logiciels installés :
+    vaccination-information.json  (calendrier vaccinal et fiches In/formation)
+    configuration.json            (intitulés, menus masqués, listes, annonce)
+
+Publier une nouvelle version du logiciel
+1. Remplacer index.html par la nouvelle version.
+2. Dans package.json, augmenter "version" (ex. 1.0.3 -> 1.0.4).
+3. Valider (« Commit changes »). GitHub fabrique l'installateur et publie une « Release ».
+4. Les logiciels installés (à partir de la 1.0.3) la détectent seuls, la téléchargent
+   et proposent de redémarrer. Les données sont conservées.
+
+Modifier seulement le contenu ou l'interface (sans nouvelle version)
+- Remplacer referentiel/vaccination-information.json ou referentiel/configuration.json.
+  Aucune fabrication n'est lancée ; les logiciels les lisent une fois par jour.
+
+Conditions
+- Le dépôt doit être PUBLIC.
+- Settings › Actions › General › Workflow permissions : « Read and write permissions ».
