@@ -1,6 +1,6 @@
 {
   "name": "tenkala-care-software",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "TENKALA CARE SOFTWARE - Logiciel de gestion des formations sanitaires. Conçu, vérifié et approuvé par NKENLIFACK Florent Tasso' Ndombou ; réalisé avec l'assistance de Claude (Anthropic) ; fabriqué et distribué via GitHub.",
   "author": "NKENLIFACK Florent Tasso' Ndombou",
   "main": "main.js",

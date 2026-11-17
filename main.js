@@ -51,7 +51,13 @@ ipcMain.handle('tk-maj', async () => {
     const v = r && r.updateInfo && r.updateInfo.version;
     if (v && v !== app.getVersion()) return `La version ${v} est disponible : téléchargement en cours. Vous serez prévenu quand elle sera prête.`;
     return `Vous utilisez la dernière version (${app.getVersion()}).`;
-  } catch (e) { return 'Impossible de vérifier : connexion internet indisponible.'; }
+  } catch (e) {
+    const m = String((e && e.message) || e || '');
+    if (/ENOTFOUND|EAI_AGAIN|ENETUNREACH|ECONNREFUSED|ETIMEDOUT|ECONNRESET|net::ERR_(INTERNET|NAME|NETWORK|CONNECTION)/i.test(m)) return 'Impossible de vérifier : connexion internet indisponible.';
+    if (/CERT|certificate|ERR_CERT|date/i.test(m)) return 'Impossible de vérifier : vérifiez la date et l’heure de l’ordinateur (connexion sécurisée refusée).';
+    if (/404|latest\.yml|Cannot find|No published versions/i.test(m)) return 'Aucune version publiée trouvée sur GitHub (dépôt privé, version en brouillon ou fabrication non terminée).';
+    return 'Impossible de vérifier : ' + m.split('\n')[0].slice(0, 160);
+  }
 });
 
 app.whenReady().then(() => {
