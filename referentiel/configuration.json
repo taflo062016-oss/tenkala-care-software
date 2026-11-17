@@ -1,0 +1,14 @@
+{
+ "format": "TENKALA-CARE-CONFIGURATION",
+ "version": "2026.11.17",
+ "date": "2026-11-17",
+ "note": "Configuration initiale : interface d’origine.",
+ "libelles": {},
+ "menus": {},
+ "masquer": [],
+ "listes": {
+  "ajouter": {},
+  "remplacer": {}
+ },
+ "annonce": null
+}
