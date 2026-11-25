@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="tk-manuel" content="2026.11.26.24">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TENKALA CARE SOFTWARE – Manuel de l'utilisateur</title>
+<style>
+:root{--p:#0b5d55;--p2:#e6f3f1;--t:#1f2a29;--m:#5b6b69;--l:#d3dfdd}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 "Segoe UI",Arial,sans-serif;color:var(--t);background:#f4f7f6}
+.wrap{display:flex;min-height:100vh}
+nav{width:290px;flex:0 0 290px;background:#fff;border-right:1px solid var(--l);padding:18px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav h2{font-size:15px;margin:0 0 4px;color:var(--p)}
+nav p.v{margin:0 0 12px;font-size:12px;color:var(--m)}
+nav input{width:100%;padding:7px 9px;border:1px solid var(--l);border-radius:8px;margin-bottom:10px;font:inherit;font-size:13.5px}
+nav ol{margin:0;padding-left:22px;font-size:13.5px}
+nav li{margin:3px 0}
+nav a{color:var(--t);text-decoration:none}
+nav a:hover{color:var(--p);text-decoration:underline}
+nav li.cache{display:none}
+main{flex:1;max-width:900px;padding:26px 36px 60px}
+.cover{background:linear-gradient(135deg,#0b3d3a,#0f766e);color:#fff;border-radius:14px;padding:28px 30px;margin-bottom:22px}
+.cover h1{margin:0 0 4px;font-size:28px;letter-spacing:.02em}
+.cover p{margin:4px 0;opacity:.92}
+section{background:#fff;border:1px solid var(--l);border-radius:12px;padding:6px 26px 18px;margin:0 0 18px}
+h2{color:var(--p);font-size:21px;border-bottom:2px solid var(--p2);padding-bottom:6px;margin:18px 0 10px}
+h3{font-size:16.5px;margin:18px 0 6px;color:#0b3d3a}
+.steps{counter-reset:s;list-style:none;padding-left:0}
+.steps>li{counter-increment:s;position:relative;padding-left:36px;margin:7px 0}
+.steps>li:before{content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--p);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ast,.att,.pt{border-radius:10px;padding:10px 14px;margin:10px 0;font-size:14.5px}
+.ast{background:#ecfdf5;border-left:4px solid #059669}
+.att{background:#fff7ed;border-left:4px solid #ea580c}
+.pt{background:#eff6ff;border-left:4px solid #2563eb}
+.ast b:first-child,.att b:first-child,.pt b:first-child{display:block;margin-bottom:2px}
+.m{display:inline-block;padding:0 7px;border:1px solid #9cb8b4;border-radius:6px;background:#f6faf9;font-size:13.5px;white-space:nowrap}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:14px}
+th,td{border:1px solid var(--l);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--p2)}
+.top{font-size:12.5px;float:right;margin-top:-4px}
+.top a{color:var(--m)}
+.noprint{}
+@media (max-width:820px){.wrap{display:block}nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--l)}main{padding:16px}}
+@media print{
+ @page{size:A4;margin:16mm 14mm}
+ body{background:#fff;font-size:11pt}
+ nav,.noprint,.top{display:none!important}
+ .wrap{display:block}main{max-width:none;padding:0}
+ section{border:0;padding:0;margin:0 0 6mm;page-break-before:always}
+ section:first-of-type{page-break-before:auto}
+ .cover{background:#0b3d3a!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ h2,h3{page-break-after:avoid}
+ table,.ast,.att,.pt,.steps li{page-break-inside:avoid}
+ a{color:inherit;text-decoration:none}
+ .toc-print{display:block!important}
+}
+.toc-print{display:none}
+main section{display:none}main section.vue{display:block}body.imp main section{display:block!important}body.imp .cover{display:block!important}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-bottom:18px}
+.cg a{display:block;padding:10px 12px;border:1.5px solid var(--l);border-radius:10px;background:#fff;color:var(--t);text-decoration:none;font-weight:600;font-size:14px}
+.cg a:hover{border-color:var(--p);color:var(--p);background:var(--p2)}
+.pn{display:flex;justify-content:space-between;gap:10px;margin-top:22px;padding-top:10px;border-top:1px solid var(--l);font-size:13.5px}.pn a{color:var(--p);text-decoration:none;font-weight:600}.pn a:hover{text-decoration:underline}
+#accueil{display:block}
+@media print{#accueil,.pn{display:none!important}main section{display:block!important}}
+
+.flt{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:20}
+.flt button{border:1.5px solid var(--p);background:linear-gradient(180deg,#fff,#e6f3f1);color:var(--p);font:600 13.5px "Segoe UI",Arial,sans-serif;padding:8px 14px;border-radius:20px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.flt button:hover{background:var(--p);color:#fff}.flt #bRet[hidden]{display:none}
+nav li a.on{color:var(--p);font-weight:700}
+@media print{.flt{display:none!important}}
+
+.toc-print ol{columns:2;font-size:10.5pt}
+</style>
+</head>
+<body>
+<div class="flt noprint"><button id="bRet" hidden onclick="retour()">← Retour</button><button onclick="allerSommaire()">☰ Sommaire</button></div>
+<div class="wrap">
+<nav>
+ <h2>Manuel de l'utilisateur</h2>
+ <p class="v">TENKALA CARE SOFTWARE · édition du 18 novembre 2026 (version 1.0.9) · réf. 2026.11.26.24</p>
+ <input id="q" placeholder="Rechercher dans le manuel…" oninput="filtrer(this.value)">
+ <ol id="toc"></ol>
+</nav>
+<main>
+<div class="cover">
+ <h1>TENKALA CARE SOFTWARE</h1>
+ <p><b>Manuel de l'utilisateur</b> : prise en main et utilisation au quotidien</p>
+ <p style="font-size:13px">Logiciel de gestion des formations sanitaires · conçu, vérifié et approuvé par NKENLIFACK Florent Tasso' Ndombou · réalisé avec l'assistance de Claude (IA d'Anthropic) · fabriqué et distribué via GitHub.</p>
+</div>
+
+<div class="toc-print"><h2>Sommaire</h2><ol id="toc2"></ol></div>
+
+<section id="s1"><h2>1. Présentation et principes</h2>
+<p>TENKALA CARE SOFTWARE réunit dans un seul programme la gestion d'un centre de santé : patients, consultations, soins, laboratoire, pharmacie, caisse, personnel, logistique, vaccination, documentation médicale, télémédecine et rapports au MINSANTÉ.</p>
+<h3>Ce qu'il faut retenir</h3>
+<ul>
+ <li><b>Hors ligne :</b> le logiciel fonctionne sans internet. Internet n'est utile que pour les mises à jour, le DHIS2, la télémédecine (Synapse), l'assistant IA et les recherches sur le web.</li>
+ <li><b>Les données restent sur l'appareil</b> où elles sont saisies. Chaque ordinateur ou téléphone a ses propres données : on les transfère par <b>sauvegarde</b> et <b>restauration</b> (chapitre 16).</li>
+ <li><b>Chaque utilisateur a un compte</b> (nom + code PIN) et ne voit que les modules autorisés pour son rôle.</li>
+ <li><b>Tout est tracé</b> dans le journal d'activité.</li>
+</ul>
+<h3>Trois façons d'utiliser le logiciel</h3>
+<table><tr><th>Version</th><th>Usage</th><th>Particularités</th></tr>
+<tr><td>Windows (installée)</td><td>Poste principal du centre</td><td>Mises à jour automatiques, copie des fichiers importés sur le disque, assistant IA, caméra.</td></tr>
+<tr><td>Téléphone (application installée depuis le site)</td><td>Consultation et saisie en mobilité</td><td>Fonctionne hors ligne après la première ouverture ; mise à jour à l'ouverture avec internet.</td></tr>
+<tr><td>Fichier HTML ouvert dans un navigateur</td><td>Dépannage, démonstration</td><td>Pas de mise à jour automatique.</td></tr></table>
+</section>
+
+<section id="s2"><h2>2. Installation et mise à jour</h2>
+<h3>Installer sur un ordinateur Windows</h3>
+<ol class="steps">
+ <li>Sur le site GitHub du logiciel, ouvrez <b>Releases</b> et téléchargez le fichier <span class="m">TENKALA-CARE-SOFTWARE-Installation-x.x.x.exe</span>.</li>
+ <li>Lancez-le, choisissez le dossier d'installation et validez. Un raccourci est créé sur le bureau.</li>
+ <li>Au premier lancement, créez le compte administrateur (chapitre 3).</li>
+</ol>
+<h3>Installer sur un téléphone</h3>
+<ol class="steps">
+ <li>Ouvrez dans Chrome (Android) ou Safari (iPhone) l'adresse du logiciel en ligne, en commençant par <span class="m">https://</span>.</li>
+ <li>Android : menu <span class="m">⋮</span> › <b>Installer l'application</b>. iPhone : <span class="m">Partager</span> › <b>Sur l'écran d'accueil</b>.</li>
+ <li>Ouvrez-la une première fois avec internet ; ensuite elle fonctionne hors ligne.</li>
+</ol>
+<h3>Mises à jour</h3>
+<p>La version Windows vérifie seule les mises à jour 10 secondes après le démarrage puis toutes les 6 heures. Quand une version est prête, une fenêtre propose <b>Redémarrer maintenant</b> ou <b>Plus tard</b> (installation à la fermeture). Vous pouvez aussi lancer la vérification depuis <span class="m">Fichier › À propos › Rechercher une mise à jour</span>. La version installée et la date de la dernière mise à jour y sont affichées.</p>
+<h3>Mise à jour du manuel</h3>
+<p>Le manuel est fourni avec le logiciel et suit ses mises à jour. Entre deux versions, une édition corrigée peut être publiée en ligne : à chaque démarrage avec internet, le logiciel la télécharge et la conserve pour la consultation hors ligne. La référence de l'édition est indiquée en haut du sommaire.</p>
+<div class="ast"><b>Conseil</b>Faites une sauvegarde (.json) avant d'accepter une mise à jour. Vos données sont conservées, mais une copie de sécurité est toujours prudente.</div>
+</section>
+
+<section id="s3"><h2>3. Premier démarrage, connexion et rôles</h2>
+<h3>Créer le premier administrateur</h3>
+<ol class="steps">
+ <li>Cliquez sur <b>Créer le compte administrateur</b>.</li>
+ <li>Saisissez le nom complet et un code PIN (deux fois). Retenez-le : il n'est pas récupérable.</li>
+ <li>Renseignez ensuite l'identité du centre (chapitre 4).</li>
+</ol>
+<div class="att"><b>Important</b>Pour le Centre de Santé DÉÏ GRACIA, le premier administrateur doit être exactement « Florent Tasso' Ndombou ». Sinon le logiciel passe en mode générique et efface les informations propres à DÉÏ GRACIA (identité, formulaires à imprimer, carnets).</div>
+<h3>Consulter le manuel avant de se connecter</h3>
+<p>Le manuel peut être imprimé ou téléchargé en <b>PDF</b> ou en page HTML depuis sa fenêtre.</p>
+<p>Sur l'écran de connexion, le bouton <span class="m">📘 Manuel de l'utilisateur</span> ouvre ce manuel sans identifiant : idéal pour la formation théorique des nouveaux agents. Une fois connecté, il reste accessible par l'icône <span class="m">📘 Manuel</span> de la barre d'outils et par le menu <span class="m">Aide</span>.</p>
+<h3>Se connecter et se déconnecter</h3>
+<p>Choisissez votre nom, saisissez votre PIN et validez. Votre nom et votre rôle sont affichés dans le cadre à droite de la barre d'outils. Le bouton rouge <span class="m">⏻ Quitter</span> ferme la session : faites-le toujours avant de laisser le poste. La case <b>Afficher le code secret</b>, sous chaque champ de code (connexion, création de compte, clé de l'Assistant IA), montre ce que vous tapez ; le code est masqué de nouveau dès l'envoi. Ne l'utilisez pas si quelqu'un regarde l'écran.</p>
+<h3>Créer d'autres comptes</h3>
+<p>Sur l'écran de connexion, <span class="m">Créer un nouveau compte</span> : un <b>compte administrateur</b> (deux au maximum) se crée sans autre validation ; un <b>compte utilisateur</b> doit être validé par l'un des administrateurs, qui choisit son nom et tape son code secret.</p>
+<p>Les patients enregistrés avant cette version gardent leur ancien code (P00001…) ; un administrateur peut leur attribuer le code MINSANTÉ avec le bouton <span class="m">Codes MINSANTÉ pour les anciens patients</span> de la liste des patients. L'ancien code reste visible et sert toujours à la recherche.</p>
+<h3>Rôles</h3>
+<p>Chaque rôle (Administrateur, Médecin, Infirmier, Sage-femme, Laborantin, Pharmacien, Caissier, Ressources humaines, Accueil, Logistique…) donne accès à un ensemble de modules. L'administrateur crée les comptes et ajuste les droits dans <span class="m">Outils › Utilisateurs et droits</span>.</p>
+</section>
+
+<section id="s4"><h2>4. Paramétrer le centre</h2>
+<ol class="steps">
+ <li><span class="m">Outils › Paramètres</span> : nom du centre, devise (leitmotiv), adresse, ville, téléphone, e-mail, responsable et sa qualité, logo.</li>
+ <li>Ces informations apparaissent sur la barre d'outils et dans l'en-tête et le pied de page de tous les documents imprimés (avec le code QR).</li>
+ <li><span class="m">Outils › Utilisateurs et droits</span> : créez un compte par agent avec le bon rôle.</li>
+ <li>Pharmacie : créez le catalogue des produits (chapitre 8). Personnel : saisissez les employés (chapitre 10).</li>
+ <li><span class="m">Outils › Configuration de l'interface</span> (administrateur) : libellés, modules masqués, listes déroulantes, annonce affichée en haut, chargement d'un fichier de configuration (.json).</li>
+</ol>
+</section>
+
+<section id="s5"><h2>5. L'écran principal</h2>
+<table><tr><th>Zone</th><th>Rôle</th></tr>
+<tr><td>Barre de menus (en haut, fond foncé)</td><td>Accès à tous les modules, regroupés : Fichier, Accueil et soins, Vaccination, Plateau technique, Finances, Personnel, Logistique, Documents, Affichage, Outils, Aide. Le menu <b>Outils</b> réunit In/formation, Synapse, l'Assistant IA et le Rapport MINSANTÉ, puis les paramètres. Un nombre rouge signale des éléments en attente (sur « Outils » : rapports MINSANTÉ à transmettre).</td></tr>
+<tr><td>Barre d'outils (en dessous)</td><td>À gauche, le logo, le nom et le leitmotiv du centre ; puis les raccourcis : Accueil, Tableau de bord, Patient, Consultation, Examen, Facture, Sortie stock, Sauvegarder ; la recherche de patient ; à droite l'utilisateur connecté et le bouton Quitter.</td></tr>
+<tr><td>Panneau « Tableau de bord » (à gauche)</td><td>Résumé du jour (consultations, rendez-vous, hospitalisés, examens, alertes de stock et de contrats). Le bouton « « » le replie, « » » le rouvre.</td></tr>
+<tr><td>Fenêtre centrale</td><td>Le module ouvert. Elle reste fixe : seul son contenu défile.</td></tr></table>
+<h3>Personnaliser la barre d'outils</h3>
+<ul>
+ <li><b>Masquer un bouton :</b> clic droit sur le bouton › <span class="m">🙈 Masquer de la barre d'outils</span>.</li>
+ <li><b>Ajouter un module :</b> clic droit sur un module dans un menu déroulant ou une vignette de l'accueil › <span class="m">📌 Afficher dans la barre d'outils</span>.</li>
+ <li><b>Réafficher :</b> clic droit sur un espace libre de la barre › choisir le bouton à réafficher, ou <span class="m">↺ Rétablir la barre d'outils par défaut</span>.</li>
+ <li>Chaque utilisateur garde sa propre barre sur l'appareil.</li>
+</ul>
+<h3>Déplacer et redimensionner les fenêtres</h3>
+<ul>
+ <li><b>Déplacer :</b> attrapez la barre de titre (fenêtre centrale, fenêtres de saisie) ou l'en-tête « Tableau de bord » du panneau latéral, et faites glisser.</li>
+ <li><b>Redimensionner :</b> tirez un bord (gauche, droit, bas) ou un coin. Le contenu s'adapte : formulaires sur une colonne, tableaux défilants, rien n'est masqué.</li>
+ <li><b>Sans chevauchement :</b> la fenêtre centrale et le panneau latéral ne se superposent jamais ; une fenêtre s'arrête au bord de l'autre. Pour libérer de la place, réduisez d'abord l'autre fenêtre.</li>
+ <li><b>Ajuster d'un coup :</b> double-clic sur un bord (gauche, droit, bas) ou un coin : la fenêtre s'étend dans ce sens jusqu'à la fenêtre voisine ou jusqu'au bord de l'écran.</li>
+ <li><b>Remettre en place :</b> double-clic sur une barre de titre. Les fenêtres de saisie (boîtes de dialogue) restent au premier plan.</li>
+</ul>
+<h3>Accueil (tous les modules)</h3>
+<p>Le bouton <b>Accueil</b> affiche toutes les vignettes rondes, classées par groupe. Cliquez sur une vignette pour ouvrir le module.</p>
+<h3>Affichage</h3>
+<p><span class="m">Affichage</span> permet de choisir les couleurs (thème) et, sur téléphone, la « version ordinateur ».</p>
+<h3>Thème des fêtes de fin d'année</h3>
+<p>Du <b>20 décembre au 31 janvier</b>, chaque année, le logiciel prend tout seul un air de fête : bonnet de Père Noël sur les logos, guirlande lumineuse sous la barre de menus, couleurs rouge et vert, flocons et étoiles qui tombent doucement, et un message de vœux sur l'accueil et le tableau de bord (par exemple, du 20 décembre 2026 au 31 janvier 2027 : « Joyeux Noël 2026 et Bonne et heureuse année 2027. »). Le bouton <span class="m">Fêtes</span> d'Affichage (aussi sur l'écran de connexion) passe de <b>auto</b> à <b>activé</b> puis <b>désactivé</b> ; le bouton <span class="m">❄ Flocons</span> coupe seulement les flocons. Le choix est propre à chaque appareil ; rien n'apparaît à l'impression.</p>
+<h3>Conventions des boutons</h3>
+<p>Bouton vert plein : action principale (Enregistrer, Valider). Bouton blanc à bord vert : action secondaire (Annuler, Imprimer). Bouton rouge : suppression ou sortie. Les champs marqués <b>*</b> sont obligatoires.</p>
+</section>
+
+<section id="s6"><h2>6. Patients et parcours de soins</h2>
+<h3>Enregistrer un patient</h3>
+<ol class="steps">
+ <li>Barre d'outils › <b>Patient</b> (ou <span class="m">Accueil et soins › Enregistrement des patients</span>).</li>
+ <li>Saisissez nom, prénom, sexe, date de naissance, <b>nom complet de la mère</b> et <b>code patient de la mère</b> (s'il existe), téléphone, adresse. En tapant un nom ou un prénom, le logiciel propose uniquement les noms et prénoms déjà enregistrés (patients et personnel) ; pour la mère, il propose les femmes déjà enregistrées et remplit alors son code patient tout seul. Chaque liste de suggestions ne propose que des éléments du même genre que le champ (pas de produits ni de maladies dans un nom de personne). Dès qu'un patient est choisi dans un formulaire, sa fiche (code, sexe, âge, téléphone, mère, allergies) s'affiche sous le champ ; de même pour un employé (matricule, poste, dates d'embauche et de fin de contrat). L'âge est calculé à partir de la date de naissance et de la date du jour (en jours pour un nouveau-né, en mois avant 2 ans, en ans et mois jusqu'à 5 ans).</li>
+ <li>Le <b>code patient</b> suit les registres du MINSANTÉ : date de naissance inversée (AAMMJJ), initiales du nom et du prénom, tiret, initiale du nom de la mère. Exemple : née le 25/03/2013, TCHOUPO Clarisse, mère MBARGA → <span class="m">130325TC-M</span>. Le code s'affiche pendant la saisie et se met à jour si l'on corrige la fiche.</li>
+ <li><b>Enfant sans code propre :</b> choisissez « Enfant : code de la mère + année de naissance », puis indiquez le code patient de la mère (ou choisissez-la parmi les patients du centre) ; le code devient celui de la mère suivi des deux derniers chiffres de l'année de naissance (ex. <span class="m">950704NA-E/26</span>). Deux codes identiques sont distingués par « .2 », « .3 »…</li>
+ <li>Enregistrez. Pour retrouver un patient, tapez son nom ou son code dans la recherche de la barre d'outils.</li>
+ <li>Dans tous les formulaires qui demandent un <b>Patient</b> (bilan de santé, consultation, facture, etc.), cliquez dans le champ : la liste des patients enregistrés s'affiche ; tapez quelques lettres du nom ou du code pour la réduire, puis cliquez sur le patient.</li>
+</ol>
+<h3>Dossier du patient</h3>
+<p>Le dossier regroupe l'identité, les consultations, examens, prescriptions, hospitalisations, factures et l'encadré Synapse (télémédecine). Les boutons en haut du dossier permettent de lancer chaque acte.</p>
+<h3>Consultation</h3>
+<ol class="steps">
+ <li>Barre d'outils › <b>Consultation</b>, choisissez le patient.</li>
+ <li>Renseignez constantes, motif, examen, diagnostic. Dans le champ diagnostic, tapez quelques lettres : les libellés et codes <b>CIM-11</b> sont proposés si la CIM-11 a été importée (chapitre 13).</li>
+ <li>Ajoutez prescriptions et examens demandés, puis enregistrez. Ordonnance et documents s'impriment depuis la consultation.</li>
+</ol>
+<h3>Autres services de soins</h3>
+<p>Selon les droits : Rendez-vous, Bilans de santé, Urgences, Salle de soins, Hôpital de jour, Hospitalisation (admission, suivi, sortie, résumé de sortie), Poste de soins infirmiers, Bloc opératoire, Kinésithérapie, Avis médicaux, Archives médicales. Tous suivent le même principe : bouton <b>+ Nouveau</b>, formulaire, enregistrement, liste filtrable.</p>
+</section>
+
+<section id="s7"><h2>7. Plateau technique</h2>
+<p><b>Laboratoire :</b> les examens demandés en consultation arrivent dans la liste des demandes. Le laborantin saisit les prélèvements, puis les résultats ; le statut passe à « Fait » et le résultat s'imprime.</p>
+<h3>Module Laboratoire</h3>
+<p>Le module s’ouvre par <span class="m">Plateau technique › Laboratoire</span> ou le bouton <b>Examen</b> de la barre d’outils. Il comporte quatre onglets :</p>
+<ol class="steps">
+ <li><b>🔒 Liste des examens</b> — ouverte uniquement avec le mot de passe d’un administrateur ; trois colonnes : ① les <b>paillasses</b> (Hématologie, Biochimie, Parasitologie, Sérologie / Immunologie, Bactériologie), ② les <b>examens</b> de la paillasse choisie, ③ la <b>fiche d’examen</b> : échantillon habituel, paramètres selon le type de résultat attendu, puis prix. Rien n’est gardé avant le bouton <span class="m">✔ Enregistrer l’examen</span>. Pour un examen à plusieurs paramètres (NFS…), une fenêtre règle les valeurs normales : générales, et si besoin homme, femme, homme et femme de 50 ans et plus, enfant (moins de 15 ans), nouveau-né, avec le mot de l’interprétation (ex. Anémie).</li>
+ <li><b>Demandes d’examen</b> — choisir le patient, le prescripteur, les renseignements cliniques, puis ajouter les examens par listes déroulantes (paillasse, puis examen). Pour chaque examen, indiquez <b>Accepté</b> ou <b>Non accepté</b> (le patient accepte ou non de le faire) : seuls les examens acceptés partent sur les paillasses et comptent dans le total ; les autres restent en bas de la demande, avec un bouton <span class="m">Accepter</span> pour plus tard. Dans la fiche du patient, et dans la consultation (sous les diagnostics), le bouton <span class="m">🧪 Demande d’examen</span> ouvre cette fenêtre sans quitter l’écran ; depuis la consultation, le prescripteur et les diagnostics sont repris. Dans toutes les fenêtres, les touches ↑ ↓ (et Page préc. / Page suiv.) font défiler le contenu.</li>
+ <li><b>Travail par paillasse</b> — examens à faire, filtrés par paillasse, avec <span class="m">Saisir le résultat</span> : la fenêtre comporte le <b>n° du reçu ou de la preuve de paiement</b> (les factures du patient sont proposées ; un avertissement s’affiche s’il manque) ; valeur lue et commentaire par paramètre, valeurs normales adaptées au sexe et à l’âge, Bas / Élevé et interprétation proposée (modifiable). En biochimie, ni commentaire ni interprétation. Les valeurs non renseignées sont signalées à l’enregistrement et à la fermeture ; si leur absence est confirmée, elles ne s’impriment pas. Le bouton <span class="m">👁 Aperçu du résultat</span> montre le résultat avant de l’enregistrer.</li>
+ <li><b>Résultats et bulletins</b> — les résultats d’un même patient rendus le même jour sont réunis sur une seule fiche, rangée par paillasse. <span class="m">👁 Aperçu</span> (un examen) et <span class="m">👁 Aperçu de la fiche complète</span> s’ouvrent avec un zoom ; <span class="m">Imprimer…</span> reprend la mise en page du logiciel (en-tête, pied de page, A4 ou A5, sans cadre).</li>
+</ol>
+<p>Bactériologie (PCV, ECBU, PU, Pus, Coproculture, Spermoculture + ATB) : macroscopie, microscopie, coloration de Gram, culture sur milieu usuel, antibiogramme ; la fiche imprime « élément : résultat ». Sérologie : examens chiffrés (ex. CRP 0 – 5 mg/L) et TDR à commentaire ; les examens IgG / IgM donnent deux lignes, sans valeurs normales. Les valeurs normales reprennent les fiches du laboratoire du centre ; le responsable du laboratoire les ajuste dans la fiche d’examen.</p>
+<p><b>Imagerie, Banque de sang, Stérilisation :</b> mêmes principes (demande, réalisation, résultat).</p>
+</section>
+
+<section id="s8"><h2>8. Pharmacie et stock</h2>
+<h3>Catalogue des produits</h3>
+<p><span class="m">Plateau technique › Pharmacie</span> : ajoutez chaque produit (nom, dosage, forme, catégorie, prix, seuil d'alerte), un par un ou en liste avec <b>Ajouter plusieurs produits</b>.</p>
+<h3>Entrées et sorties</h3>
+<ol class="steps">
+ <li><b>+ Entrée (réception)</b> : produit, quantité, date, numéro de lot, date de péremption, fournisseur.</li>
+ <li><b>− Sortie</b> : dispensation, utilisation en soins, perte, péremption… La barre d'outils propose aussi <b>Sortie stock</b>.</li>
+ <li>Les ventes facturées en caisse sortent automatiquement du stock.</li>
+ <li><b>Inventaire</b> : saisissez la quantité comptée ; l'écart est corrigé et tracé.</li>
+</ol>
+<div class="pt"><b>Facture fournisseur lue par l'IA</b>Le bouton <span class="m">🤖 Facture fournisseur</span> lit la photo ou le PDF d'une facture et propose les lignes d'entrée en stock à vérifier (chapitre 15).</div>
+<p>Les alertes « produits sous le seuil » et « lots proches de la péremption » apparaissent sur le tableau de bord.</p>
+</section>
+
+<section id="s9"><h2>9. Caisse, facturation et finances</h2>
+<ol class="steps">
+ <li>Barre d'outils › <b>Facture</b> : choisissez le patient, ajoutez les actes et produits, appliquez une éventuelle prise en charge (assurance).</li>
+ <li>Encaissez (totalement ou partiellement) ; imprimez le reçu.</li>
+ <li>Les factures impayées restent signalées dans <span class="m">Finances › Caisse et facturation</span>.</li>
+</ol>
+<p>Autres écrans : Facturation hospitalisation, Assurances et prises en charge, Recettes et dépenses (comptabilité, bilan d'ouverture), Honoraires des médecins, Rapports (activité et recettes par période, exportables et imprimables).</p>
+</section>
+
+<section id="s10"><h2>10. Personnel</h2>
+<p>Le menu <span class="m">Personnel</span> ouvre la gestion du personnel avec ses onglets : Dossiers du personnel, Recrutement, Paie, Documents, Outils.</p>
+<h3>Créer le dossier d'un employé</h3>
+<ol class="steps">
+ <li><b>+ Nouvel employé</b>, puis remplissez l'identité, le contrat, le salaire, les postes occupés et les contrats successifs.</li>
+ <li><b>Photo :</b> dans « Photo et informations complémentaires », <span class="m">🖼️ Choisir</span> une photo existante ou <span class="m">📷 Caméra</span> pour la prendre avec la caméra de l'ordinateur (placez le visage dans le cadre pointillé, puis Capturer). Recadrage automatique au format 3,5 × 4,5 cm.</li>
+ <li><b>Avec l'IA :</b> <span class="m">🤖 Remplir à partir des documents</span> lit la CNI, l'acte de naissance, les diplômes, le contrat et remplit les champs vides, surlignés en jaune pour vérification (chapitre 15).</li>
+ <li>Cliquez sur <b>Enregistrer</b>.</li>
+</ol>
+<p>Depuis la liste : Dossier, Paie, Attestation / Certificat de travail, Fiche individuelle, Carte professionnelle. Également : échéances des contrats, recrutement des candidats, congés et absences, planning des gardes, bulletins de paie et leur historique.</p>
+<h3>Embaucher un candidat</h3>
+<p>Dans <b>Recrutement</b>, ouvrez la candidature retenue, saisissez la <b>date d'embauche</b> (obligatoire), puis cliquez sur <span class="m">✔ Embaucher : créer le dossier employé</span>. Le dossier s'ouvre avec cette date comme début du premier poste et de la période d'essai (fin calculée à 3 mois). Les dates restent modifiables à tout moment dans le dossier (postes occupés et contrats successifs).</p>
+<h3>Dates d'embauche et de fin de contrat</h3>
+<p>Le dossier de chaque employé comporte deux champs : <b>Date d'embauche</b> et <b>Date de fin de contrat</b>. Aucune date n'est plus inscrite automatiquement : saisissez-les vous-même. Ces deux dates sont reprises dans l'<b>attestation de travail</b> (« depuis le… », et « jusqu'au… » pour un contrat à durée déterminée ou un essai) et dans le <b>certificat de travail</b> (« du… au… »). À l'écran <span class="m">Certificat / Attestation</span>, elles s'affichent pré-remplies et peuvent être corrigées ; le bouton <span class="m">Enregistrer ces dates dans le dossier</span> met le dossier à jour. Si une date manque, un avertissement s'affiche et le document montre des pointillés à compléter.</p>
+</section>
+
+<section id="s11"><h2>11. Logistique</h2>
+<p>Expression des besoins (fiches imprimables), Magasin (articles non pharmaceutiques, seuils), Mouvements du magasin, Fournisseurs, Équipements et biens (inventaire, garantie, pannes), Équipements à acquérir, Maintenance, Lingerie, Restauration, Ambulance, Morgue, Avis des patients.</p>
+</section>
+
+<section id="s12"><h2>12. Vaccination (PEV)</h2>
+<p>Le bouton <span class="m">Vaccination</span> ouvre le module avec son propre menu latéral : Tableau de bord, Séance de vaccination, Bénéficiaires (enfants, femmes enceintes…), Rappels et perdus de vue, Stock des vaccins, Chaîne du froid (relevés de température), Campagnes, MAPI, Rapport mensuel, Calendrier vaccinal, Mise à jour en ligne, Paramètres.</p>
+<ol class="steps">
+ <li>Enregistrez le bénéficiaire, puis ouvrez une <b>séance</b> et cochez les doses administrées.</li>
+ <li>Les prochains rendez-vous sont calculés selon le calendrier du PEV ; les retards apparaissent dans <b>Rappels et perdus de vue</b>.</li>
+ <li>Relevez la température du réfrigérateur deux fois par jour dans <b>Chaîne du froid</b>.</li>
+ <li>En fin de mois, produisez le <b>rapport mensuel</b>.</li>
+</ol>
+<p>Le panneau du tableau de bord est replié dans ce module pour laisser plus de place ; cliquez sur « » Tableau de bord » pour l'afficher.</p>
+</section>
+
+<section id="s13"><h2>13. In/formation, dictionnaires et CIM-11</h2>
+<h3>Bibliothèque de fiches</h3>
+<p><span class="m">Outils › In/formation</span> ouvre la bibliothèque : maladies courantes, pathologies par thème (18 thèmes d'Afrique subsaharienne), protocoles, directives MINSANTÉ / PEV, alertes épidémiques. La recherche propose les fiches dès les premières lettres (« oxy » → oxygène, oxyures…) et suggère une recherche internet si rien n'est trouvé. Seuls les administrateurs créent, modifient et valident des fiches.</p>
+<h3>Termes médicaux soulignés</h3>
+<p><b>Clic</b> sur un terme souligné : définition. <b>Clic droit</b> (ordinateur) ou <b>appui long</b> (téléphone) : choix entre dictionnaire intégré, fiche, codes CIM-11, dictionnaires importés et internet. Un administrateur peut sélectionner un mot puis faire un clic droit pour l'ajouter au dictionnaire.</p>
+<h3>Images et pièces jointes d'une fiche</h3>
+<ol class="steps">
+ <li>Dans la fiche, <span class="m">📎 Joindre une image ou un document</span> (administrateur) : choisissez un ou plusieurs fichiers, indiquez légende, source et licence.</li>
+ <li>Les images s'affichent en vignettes ; cliquez pour agrandir, passer à la suivante, ou <span class="m">🖨️ Imprimer l'image</span>.</li>
+ <li><span class="m">🔎 Chercher des images libres</span> ouvre des banques d'images utilisables (CDC, Wikimedia Commons, OMS…).</li>
+</ol>
+<div class="att"><b>Droits et confidentialité</b>N'utilisez que des images libres de droits en citant la source, ou des photos prises au centre avec le consentement écrit du patient, sans visage ni élément d'identification.</div>
+<h3>CIM-11 (OMS)</h3>
+<ol class="steps">
+ <li>Téléchargez le « fichier tableur » de la CIM-11 en français sur le site de l'OMS (Info › Fichier du tableur, fichier .zip).</li>
+ <li><span class="m">Documents › Classification CIM-11</span> › <b>Importer</b> (administrateur), choisissez le .zip sans le décompresser.</li>
+ <li>Ensuite, recherche de codes, suggestions dans le diagnostic et lexique fonctionnent hors ligne.</li>
+</ol>
+<h3>Dictionnaires médicaux</h3>
+<p><span class="m">Documents › Dictionnaires médicaux</span> : importez Orphanet (pack de nomenclature en français, site orphacode.org), la liste OMS des médicaments essentiels, ou une <b>liste personnelle</b> (fichier Excel avec colonnes Terme, Définition, Synonymes – le lexique médical fourni avec le logiciel en est un exemple). Leurs définitions s'affichent hors ligne dans In/formation.</p>
+</section>
+
+<section id="s14"><h2>14. Synapse (télémédecine)</h2>
+<div class="att"><b>Avant tout envoi</b>Recueillez le consentement du patient : bouton <b>Consentement</b>, formulaire à compléter (le texte s'accorde au sexe choisi), puis impression et signature. Par défaut, l'identité du patient est réduite à ses initiales (loi n° 2024/017).</div>
+<h3>Téléexpertise (demande d'avis)</h3>
+<ol class="steps">
+ <li>Depuis le dossier du patient ou <span class="m">Outils › Synapse › Nouvelle demande d'avis</span> : le résumé est pré-rempli à partir de la dernière consultation.</li>
+ <li>Ajoutez des photos (fichiers ou caméra de l'ordinateur) et choisissez le correspondant.</li>
+ <li>Envoyez par <b>WhatsApp</b> ou <b>e-mail</b> ; notez la réponse, puis clôturez la demande.</li>
+</ol>
+<h3>Téléconsultation vidéo</h3>
+<ol class="steps">
+ <li>Créez la téléconsultation ; un lien de visioconférence est généré.</li>
+ <li><b>Tester la caméra et le micro</b>, puis envoyez le lien au médecin (WhatsApp ou e-mail) et démarrez.</li>
+ <li>Rédigez le compte rendu et, si besoin, l'ordonnance, imprimables.</li>
+</ol>
+<p>Onglet <b>Correspondants</b> : médecins et spécialistes avec téléphone WhatsApp et e-mail.</p>
+</section>
+
+<section id="s15"><h2>15. Assistant IA (version Windows)</h2>
+<p>Claude, l'IA d'Anthropic, lit des documents (photos ou PDF) et pré-remplit le logiciel. Internet est nécessaire au moment de la lecture, et la lecture a un coût (quelques FCFA par page).</p>
+<h3>Mise en service (administrateur)</h3>
+<ol class="steps">
+ <li>Créez un compte sur <b>platform.claude.com</b>, ajoutez des crédits et fixez un plafond de dépense mensuel.</li>
+ <li>Créez une clé API (« Create key ») et copiez-la.</li>
+ <li><span class="m">Outils › Assistant IA</span> › onglet <b>Clé, réglages et journal</b> : collez la clé, <b>Enregistrer la clé</b>, puis <b>Tester</b>.</li>
+</ol>
+<div class="att"><b>Sécurité de la clé</b>La clé est un mot de passe lié à votre compte payant. Elle est chiffrée par Windows et reste sur l'ordinateur. Ne la communiquez à personne, ne la mettez jamais sur GitHub ni dans un message. En cas de doute, supprimez-la dans la Console Anthropic et créez-en une nouvelle.</div>
+<h3>L'atelier « Assistant IA » (Outils › Assistant IA)</h3>
+<ol class="steps">
+ <li><b>Documents :</b> <span class="m">📂 Choisir sur l'ordinateur</span> (photos ou PDF) et/ou <span class="m">📷 Prendre avec la caméra</span> : caméra de l'ordinateur, téléphone en webcam USB ou photos envoyées par Wi-Fi (chapitre 21). Jusqu'à 12 pages ; ✕ pour retirer une page.</li>
+ <li><b>Outil de traitement :</b> <b>Sonnet 5.5</b> (recommandé, photos et manuscrits), <b>Haiku 5.5</b> (économique, documents tapés et nets) ou <b>Opus 5.5</b> (le plus précis, documents abîmés). Le coût estimé par page est affiché.</li>
+ <li><b>Fiche à renseigner :</b> Dossier d'un nouvel employé, Nouveau patient (identité), Facture fournisseur → entrée en stock, ou Toute autre fiche du logiciel.</li>
+ <li>Cochez l'accord de la personne concernée, puis <span class="m">🤖 Lire et renseigner la fiche</span>. La fiche s'ouvre pré-remplie ; les champs remplis sont surlignés en jaune. Vérifiez, corrigez, puis enregistrez.</li>
+</ol>
+<h3>Remplir n'importe quel formulaire</h3>
+<p>Tous les formulaires standards du logiciel (rendez-vous, fournisseur, équipement, congé, consultation…) ont un bouton <span class="m">🤖 Remplir avec l'IA</span> en bas de leur fenêtre (version Windows). Chargez les documents ou photographiez-les, cochez l'accord, puis <b>Lire et remplir</b> : seuls les champs vides sont complétés, les valeurs déjà saisies ne sont jamais remplacées. Les documents chargés dans l'atelier sont repris automatiquement.</p>
+<h3>Raccourcis</h3>
+<ul>
+ <li><b>Dossier d'un employé :</b> <span class="m">🤖 Remplir à partir des documents</span> dans le dossier.</li>
+ <li><b>Facture fournisseur :</b> <span class="m">Pharmacie › Stock › 🤖 Facture fournisseur</span>.</li>
+</ul>
+<div class="ast"><b>Règle d'or</b>L'IA peut se tromper sur un chiffre ou un nom : relisez toujours avant d'enregistrer. Le journal de l'assistant indique chaque lecture et son coût estimé.</div>
+</section>
+
+<section id="s16"><h2>16. Sauvegarde, transfert et sécurité des données</h2>
+<h3>Sauvegarder</h3>
+<ol class="steps">
+ <li>Barre d'outils › <b>Sauvegarder</b> (ou <span class="m">Fichier › Sauvegarder les données</span>) : un fichier <span class="m">.json</span> est créé.</li>
+ <li>Rangez-le sur une clé USB ou un autre support, <b>au moins une fois par semaine</b> et avant chaque mise à jour.</li>
+</ol>
+<h3>Restaurer ou transférer vers un autre appareil</h3>
+<p><span class="m">Fichier › Ouvrir une sauvegarde</span> (administrateur) : choisissez le fichier .json. <b>Attention :</b> la restauration remplace les données de l'appareil. Pour un téléphone, envoyez-vous le fichier (WhatsApp, câble), enregistrez-le, puis restaurez-le dans l'application.</p>
+<h3>Fichiers importés (version Windows)</h3>
+<p>Images des fiches, photos Synapse, CIM-11 et dictionnaires sont copiés automatiquement dans <span class="m">Documents\TENKALA CARE SOFTWARE\Fichiers</span>. Si la copie interne disparaît, le logiciel la reprend dans ce dossier. Le chemin et un bouton « Ouvrir le dossier » figurent dans <span class="m">Fichier › À propos</span>. Incluez ce dossier dans vos copies de sécurité. Les images des fiches peuvent aussi être exportées et importées depuis <span class="m">In/formation › Données et images</span>.</p>
+<div class="att"><b>Confidentialité</b>Les sauvegardes contiennent des données de santé. Ne les laissez pas dans WhatsApp ou une boîte e-mail après usage ; protégez la clé USB ; un code PIN personnel par agent ; fermez la session (Quitter) en quittant le poste.</div>
+</section>
+
+<section id="s17"><h2>17. Rapports MINSANTÉ (DHIS2)</h2>
+<table><tr><th>Rapport</th><th>Périodicité</th><th>Alerte</th></tr>
+<tr><td>MAPE (maladies à potentiel épidémique)</td><td>Hebdomadaire</td><td>Chaque lundi dès 9 h</td></tr>
+<tr><td>RMA III</td><td>Mensuel</td><td>À partir du 02 de chaque mois</td></tr></table>
+<ol class="steps">
+ <li><span class="m">Outils › Rapport MINSANTÉ</span> (nombre rouge = rapports dus, aussi affiché sur le menu Outils) ouvre les onglets : À transmettre, Non transmis, Historique des transmis, Rapport de suivi (complétude et promptitude).</li>
+ <li>Préparez les données, ouvrez le DHIS2 (<span class="m">https://dhis-minsante-cm.org</span>) et saisissez le rapport. Les identifiants DHIS2 se gardent dans le gestionnaire de mots de passe du navigateur, jamais dans le logiciel.</li>
+ <li>Revenez marquer le rapport comme <b>transmis</b> avec sa date.</li>
+</ol>
+</section>
+
+<section id="s18"><h2>18. Documents et formulaires</h2>
+<p><span class="m">Documents</span> : Documents de gestion (modèles à compléter), Formulaires à imprimer, Production des carnets. Les documents s'ouvrent en aperçu A4 ou A5 avec en-tête, titre sous le trait, pied de page aux coordonnées du centre et code QR ; utilisez <b>Imprimer</b> ou <b>Télécharger (PDF)</b>.</p>
+<p>L'<b>attestation de travail</b> (employé en poste) et le <b>certificat de travail</b> (employé ayant quitté le centre) figurent dans <span class="m">Documents de gestion › Personnel</span> : choisissez l'employé, le document se remplit avec son dossier (identité, poste, dates, contrat), en accordant le texte au sexe de l'employé.</p>
+<p>Le <b>partogramme</b> du carnet CPN suit le modèle OMS en vigueur : 12 heures découpées en tranches de 30 minutes (deux colonnes par heure), ligne d'alerte de 4 à 10 cm en 6 heures et ligne d'action 4 heures plus tard, rangées « nombre d'heures » et « heure réelle ».</p>
+</section>
+
+<section id="s19"><h2>19. Questions fréquentes et dépannage</h2>
+<table><tr><th>Situation</th><th>Que faire</th></tr>
+<tr><td>J'ai oublié mon code PIN</td><td>Demandez à un administrateur de le réinitialiser dans Utilisateurs et droits.</td></tr>
+<tr><td>Un module n'apparaît pas</td><td>Votre rôle n'y donne pas accès : voir l'administrateur.</td></tr>
+<tr><td>« Rechercher une mise à jour » échoue</td><td>Lisez le message : pas d'internet, date et heure de l'ordinateur incorrectes, ou aucune version publiée sur GitHub.</td></tr>
+<tr><td>Le site du logiciel ne s'ouvre pas sur le téléphone</td><td>Tapez l'adresse complète avec https://, essayez un autre réseau ; sinon ouvrez le fichier HTML directement.</td></tr>
+<tr><td>Une image de fiche ne s'affiche pas</td><td>Elle a été jointe sur un autre appareil : importez les images (In/formation › Données et images).</td></tr>
+<tr><td>Les définitions CIM-11 demandent internet</td><td>Normal : le fichier de l'OMS ne contient que codes et libellés. Utilisez les dictionnaires importés.</td></tr>
+<tr><td>L'assistant IA refuse</td><td>Vérifiez internet, la clé (bouton Tester), le crédit et le plafond dans la Console Anthropic.</td></tr>
+<tr><td>La caméra ne s'ouvre pas</td><td>Autorisez l'accès à la caméra dans Windows (Paramètres › Confidentialité › Caméra) ; vérifiez qu'aucun autre programme ne l'utilise.</td></tr></table>
+</section>
+
+<section id="s20"><h2>20. Bonnes pratiques quotidiennes</h2>
+<ul>
+ <li><b>Le matin :</b> se connecter, consulter le panneau Tableau de bord (rendez-vous, alertes de stock et de contrats), relever la température du réfrigérateur des vaccins.</li>
+ <li><b>Pendant la journée :</b> saisir au fil de l'eau ; une session par agent ; vérifier l'identité du patient avant tout acte.</li>
+ <li><b>Le soir :</b> clôturer la caisse, faire une sauvegarde, fermer la session.</li>
+ <li><b>Chaque lundi :</b> MAPE dès 9 h. <b>Chaque mois :</b> RMA III à partir du 02, rapport PEV, inventaire.</li>
+ <li><b>Toujours :</b> relire ce que l'IA a rempli, respecter le secret médical et la loi n° 2024/017.</li>
+</ul>
+<p style="color:var(--m);font-size:13px;margin-top:18px">Manuel fourni avec le logiciel, consultable hors ligne. À compléter par les procédures propres à votre établissement.</p>
+</section>
+<section id="s21"><h2>21. Prise de vue (caméra, téléphone)</h2>
+<p>Dans <span class="m">Outils › Assistant IA</span>, étape 1, le bouton <span class="m">📷 Prendre avec la caméra</span> ouvre le panneau <b>Prise de vue</b>. Chaque photo capturée ou reçue s'ajoute directement aux documents à lire. <span class="m">✕ Fermer la prise de vue</span> referme le panneau et coupe la caméra.</p>
+<h3>Choisir la caméra</h3>
+<p>La liste <b>Caméras connectées</b> affiche toutes les caméras utilisables (💻 intégrée, 🎥 USB, 📱 téléphone en webcam). <span class="m">Utiliser</span> l'affiche en direct ; <span class="m">★</span> la choisit par défaut pour tout le logiciel (photos du personnel, Synapse, formulaires). <span class="m">⏹ Fermer la caméra</span> l'éteint ; <span class="m">▶ Ouvrir la caméra</span> la rallume. La liste se met à jour quand une caméra est branchée ; sinon <span class="m">🔄 Actualiser</span>.</p>
+<h3>Téléphone en webcam par câble USB (poste fixe)</h3>
+<ol class="steps">
+ <li>Installez <b>DroidCam</b> (ou <b>Iriun Webcam</b>) sur le téléphone et son programme sur l'ordinateur ; utilisez un câble USB de données.</li>
+ <li>Sur le téléphone, une seule fois : Paramètres › À propos du téléphone › touchez 7 fois <b>Numéro de build</b>, puis Paramètres › Système › Options pour les développeurs › <b>Débogage USB</b>.</li>
+ <li>Branchez le câble, autorisez le débogage, ouvrez DroidCam sur le téléphone puis DroidCam Client sur l'ordinateur (bouton USB, Start).</li>
+ <li>Dans la prise de vue, <b>Utiliser</b> la caméra 📱 « DroidCam », puis <b>★</b>. Posez le téléphone sur un support et cliquez sur <span class="m">📸 Capturer</span>.</li>
+</ol>
+<h3>Envoi par Wi-Fi local (photos prises en déplacement)</h3>
+<ol class="steps">
+ <li>Dans la prise de vue, <span class="m">▶ Démarrer la réception</span> (version Windows) : un code QR s'affiche. La première fois, autorisez TENKALA CARE sur les réseaux privés si Windows le demande.</li>
+ <li>Le téléphone, connecté au même Wi-Fi, scanne le code : une page permet de <b>Prendre une photo</b> ou de <b>Choisir dans la galerie</b>.</li>
+ <li>Les photos arrivent aussitôt dans les documents (copie dans Documents\TENKALA CARE SOFTWARE\Fichiers\telephone). Arrêt automatique après 20 minutes sans envoi.</li>
+</ol>
+<p>Les photos de patients relèvent du secret médical : consentement, pas de visage inutile, retirez-les une fois utilisées.</p>
+</section>
+<section id="s22"><h2>22. Langue de l'interface (français / English)</h2>
+<p>TENKALA CARE SOFTWARE s'utilise en <b>français</b> ou en <b>anglais</b>. Le choix se fait sur chaque appareil et s'applique aussitôt (le logiciel se recharge ; aucune donnée n'est perdue).</p>
+<ol class="steps">
+ <li><b>Avant la connexion :</b> sur l'écran de connexion, sous le bouton du manuel, cliquez sur <span class="m">🌐 Français</span> ou <span class="m">English</span>.</li>
+ <li><b>Une fois connecté :</b> <span class="m">Aide › 🌐 Français</span> ou <span class="m">Aide › 🌐 English</span>.</li>
+</ol>
+<div class="pt"><b>Ce qui est traduit</b>Menus, boutons, formulaires, messages, tableaux, gestion du personnel et paie, comptabilité et fiscalité, interface du module de vaccination, documents imprimés depuis les fenêtres du logiciel (factures, attestations, bulletins, rapports) et le manuel (édition anglaise). Les termes médicaux suivent l'usage de l'OMS en anglais britannique (anaemia, haemoglobin, paediatrics, immunisation…). Les formulaires PDF officiels fournis par les autorités gardent leur texte d'origine.</div>
+<div class="att"><b>Ce qui reste tel que saisi</b>Les données saisies sont enregistrées telles quelles et ne sont jamais modifiées. Le texte libre (noms, notes, observations) s'affiche tel que saisi ; les termes standard issus des listes du logiciel (diagnostics, produits, unités, statuts) s'affichent en anglais. En anglais, les informations sont enregistrées de la même façon qu'en français : une sauvegarde faite dans une langue se restaure dans l'autre. Le contenu des fiches In/formation et du lexique intégré reste en français dans cette version (textes médicaux validés).</div>
+<div class="ast"><b>Documents officiels</b>Contrats, attestations et déclarations suivent le droit camerounais (Code du travail, Code général des impôts). La version anglaise est une traduction fidèle pour l'usage bilingue ; en cas de doute, la version française des textes officiels fait foi.</div>
+</section>
+<section id="s23"><h2>23. Publiés (documents des campagnes)</h2>
+<p><span class="m">Documents › Publiés</span> rassemble les documents utilisés pour les campagnes : affiches, dépliants, circulaires et notes de service, guides et protocoles, rapports, fiches techniques, présentations, photos, vidéos. Tout le monde peut les consulter ; les administrateurs et les personnes ayant accès aux Documents de gestion peuvent les publier, les modifier et les supprimer.</p>
+<h3>Publier un document</h3>
+<ol class="steps">
+ <li><b>+ Publier un document</b> : titre, thème (Vaccination, Paludisme, VIH / IST, Nutrition…), type de document, campagne, année, source (MINSANTÉ, OMS, UNICEF, district…), public visé, mots-clés et description.</li>
+ <li><span class="m">📂 Ajouter des fichiers</span> : un ou plusieurs fichiers (PDF, images, Word, Excel, PowerPoint, vidéo, audio ; 50 Mo au plus chacun).</li>
+ <li>Cliquez sur <b>Publier</b>. Le document apparaît aussitôt dans la liste.</li>
+</ol>
+<h3>Retrouver un document</h3>
+<p>La recherche fonctionne comme dans In/formation : tapez les premières lettres d'un mot du titre, de la campagne, des mots-clés, de la source, de l'année ou du nom du fichier (« roug » trouve « rougeole »), sans vous soucier des accents. Plusieurs mots affinent la recherche ; les mots trouvés sont surlignés. Les listes Thème, Type et Année filtrent les résultats.</p>
+<h3>Consulter, télécharger, imprimer</h3>
+<p>Cliquez sur un document : ses informations et ses fichiers s'affichent. <span class="m">👁 Voir</span> ouvre le fichier dans le logiciel (PDF, images, vidéo, audio) ; <span class="m">⭳ Télécharger</span> l'enregistre ; <span class="m">🖨️ Imprimer</span> imprime directement les PDF et les images. Les fichiers Word, Excel et PowerPoint se téléchargent puis s'ouvrent avec leur programme.</p>
+<div class="att"><b>Sauvegarde des fichiers</b>Les informations des documents sont dans la sauvegarde générale (.json), mais pas les fichiers. Sous Windows, ils sont aussi copiés dans <span class="m">Documents\TENKALA CARE SOFTWARE\Fichiers\publies</span>. Pour les passer sur un autre appareil : <span class="m">⭳ Exporter les documents et leurs fichiers</span>, puis, sur l'autre appareil, <span class="m">⭱ Importer un export</span>.</div>
+</section>
+</main>
+</div>
+<script>
+(function(){
+ const S=[...document.querySelectorAll('main section')],toc=document.getElementById('toc'),t2=document.getElementById('toc2'),cover=document.querySelector('.cover'),bR=document.getElementById('bRet');
+ const titre=s=>s.querySelector('h2').textContent;
+ S.forEach((s,k)=>{toc.insertAdjacentHTML('beforeend',`<li data-s="${s.id}"><a href="#${s.id}">${titre(s).replace(/^\d+\.\s*/,'')}</a></li>`);t2.insertAdjacentHTML('beforeend',`<li>${titre(s).replace(/^\d+\.\s*/,'')}</li>`);
+  const p=S[k-1],n=S[k+1];s.insertAdjacentHTML('beforeend',`<div class="pn noprint">${p?`<a href="#${p.id}">← ${titre(p)}</a>`:'<span></span>'}${n?`<a href="#${n.id}">${titre(n)} →</a>`:'<span></span>'}</div>`)});
+ /* page d'accueil : vignettes des chapitres */
+ cover.insertAdjacentHTML('afterend',`<div id="accueil" class="noprint"><p style="margin:0 0 10px">Choisissez un chapitre dans la liste de gauche ou ci-dessous. Chaque chapitre s'affiche seul ; la liste reste à gauche.</p><div class="cg">${S.map(s=>`<a href="#${s.id}">${titre(s)}</a>`).join('')}</div></div>`);
+ const acc=document.getElementById('accueil'),pile=[];let cur=null;
+ function montrer(id,memo){if(memo!==false&&cur!==id){pile.push(cur);bR.hidden=false}cur=id||null;
+  S.forEach(s=>s.classList.toggle('vue',s.id===cur));cover.style.display=cur?'none':'';acc.style.display=cur?'none':'';
+  toc.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));window.scrollTo(0,0);document.querySelector('main').scrollTop=0}
+ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();const id=a.getAttribute('href').slice(1);montrer(document.getElementById(id)?id:null)});
+ window.retour=()=>{if(!pile.length)return;montrer(pile.pop(),false);bR.hidden=!pile.length};
+ window.allerSommaire=()=>montrer(null);
+ window.filtrer=q=>{q=q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim();let prem=null;S.forEach(s=>{const ok=!q||s.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(q);toc.querySelector(`[data-s="${s.id}"]`).classList.toggle('cache',!ok);if(ok&&!prem)prem=s.id})};
+ document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter'){const l=toc.querySelector('li:not(.cache) a');if(l)l.click()}});
+ window.addEventListener('beforeprint',()=>document.body.classList.add('imp'));window.addEventListener('afterprint',()=>document.body.classList.remove('imp'));
+ montrer(null,false);
+})();
+</script>
+</body>
+</html>

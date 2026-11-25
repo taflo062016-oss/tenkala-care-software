@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="tk-manuel" content="2026.11.26.24">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TENKALA CARE SOFTWARE – User manual</title>
+<style>
+:root{--p:#0b5d55;--p2:#e6f3f1;--t:#1f2a29;--m:#5b6b69;--l:#d3dfdd}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 "Segoe UI",Arial,sans-serif;color:var(--t);background:#f4f7f6}
+.wrap{display:flex;min-height:100vh}
+nav{width:290px;flex:0 0 290px;background:#fff;border-right:1px solid var(--l);padding:18px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav h2{font-size:15px;margin:0 0 4px;color:var(--p)}
+nav p.v{margin:0 0 12px;font-size:12px;color:var(--m)}
+nav input{width:100%;padding:7px 9px;border:1px solid var(--l);border-radius:8px;margin-bottom:10px;font:inherit;font-size:13.5px}
+nav ol{margin:0;padding-left:22px;font-size:13.5px}
+nav li{margin:3px 0}
+nav a{color:var(--t);text-decoration:none}
+nav a:hover{color:var(--p);text-decoration:underline}
+nav li.cache{display:none}
+main{flex:1;max-width:900px;padding:26px 36px 60px}
+.cover{background:linear-gradient(135deg,#0b3d3a,#0f766e);color:#fff;border-radius:14px;padding:28px 30px;margin-bottom:22px}
+.cover h1{margin:0 0 4px;font-size:28px;letter-spacing:.02em}
+.cover p{margin:4px 0;opacity:.92}
+section{background:#fff;border:1px solid var(--l);border-radius:12px;padding:6px 26px 18px;margin:0 0 18px}
+h2{color:var(--p);font-size:21px;border-bottom:2px solid var(--p2);padding-bottom:6px;margin:18px 0 10px}
+h3{font-size:16.5px;margin:18px 0 6px;color:#0b3d3a}
+.steps{counter-reset:s;list-style:none;padding-left:0}
+.steps>li{counter-increment:s;position:relative;padding-left:36px;margin:7px 0}
+.steps>li:before{content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--p);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ast,.att,.pt{border-radius:10px;padding:10px 14px;margin:10px 0;font-size:14.5px}
+.ast{background:#ecfdf5;border-left:4px solid #059669}
+.att{background:#fff7ed;border-left:4px solid #ea580c}
+.pt{background:#eff6ff;border-left:4px solid #2563eb}
+.ast b:first-child,.att b:first-child,.pt b:first-child{display:block;margin-bottom:2px}
+.m{display:inline-block;padding:0 7px;border:1px solid #9cb8b4;border-radius:6px;background:#f6faf9;font-size:13.5px;white-space:nowrap}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:14px}
+th,td{border:1px solid var(--l);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--p2)}
+.top{font-size:12.5px;float:right;margin-top:-4px}
+.top a{color:var(--m)}
+.noprint{}
+@media (max-width:820px){.wrap{display:block}nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--l)}main{padding:16px}}
+@media print{
+ @page{size:A4;margin:16mm 14mm}
+ body{background:#fff;font-size:11pt}
+ nav,.noprint,.top{display:none!important}
+ .wrap{display:block}main{max-width:none;padding:0}
+ section{border:0;padding:0;margin:0 0 6mm;page-break-before:always}
+ section:first-of-type{page-break-before:auto}
+ .cover{background:#0b3d3a!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ h2,h3{page-break-after:avoid}
+ table,.ast,.att,.pt,.steps li{page-break-inside:avoid}
+ a{color:inherit;text-decoration:none}
+ .toc-print{display:block!important}
+}
+.toc-print{display:none}
+main section{display:none}main section.vue{display:block}body.imp main section{display:block!important}body.imp .cover{display:block!important}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-bottom:18px}
+.cg a{display:block;padding:10px 12px;border:1.5px solid var(--l);border-radius:10px;background:#fff;color:var(--t);text-decoration:none;font-weight:600;font-size:14px}
+.cg a:hover{border-color:var(--p);color:var(--p);background:var(--p2)}
+.pn{display:flex;justify-content:space-between;gap:10px;margin-top:22px;padding-top:10px;border-top:1px solid var(--l);font-size:13.5px}.pn a{color:var(--p);text-decoration:none;font-weight:600}.pn a:hover{text-decoration:underline}
+#accueil{display:block}
+@media print{#accueil,.pn{display:none!important}main section{display:block!important}}
+
+.flt{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:20}
+.flt button{border:1.5px solid var(--p);background:linear-gradient(180deg,#fff,#e6f3f1);color:var(--p);font:600 13.5px "Segoe UI",Arial,sans-serif;padding:8px 14px;border-radius:20px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.flt button:hover{background:var(--p);color:#fff}.flt #bRet[hidden]{display:none}
+nav li a.on{color:var(--p);font-weight:700}
+@media print{.flt{display:none!important}}
+
+.toc-print ol{columns:2;font-size:10.5pt}
+</style>
+</head>
+<body>
+<div class="flt noprint"><button id="bRet" hidden onclick="retour()">← Back</button><button onclick="allerSommaire()">☰ Contents</button></div>
+<div class="wrap">
+<nav>
+ <h2>User manual</h2>
+ <p class="v">TENKALA CARE SOFTWARE · edition of 18 November 2026 (version 1.0.9) · ref. 2026.11.26.24</p>
+ <input id="q" placeholder="Search the manual…" oninput="filtrer(this.value)">
+ <ol id="toc"></ol>
+</nav>
+<main>
+<div class="cover">
+ <h1>TENKALA CARE SOFTWARE</h1>
+ <p><b>User manual</b>: getting started and everyday use</p>
+ <p style="font-size:13px">Health facility management software · designed, checked and approved by NKENLIFACK Florent Tasso' Ndombou · produced with the assistance of Claude (Anthropic’s AI) · built and distributed via GitHub.</p>
+</div>
+
+<div class="toc-print"><h2>Contents</h2><ol id="toc2"></ol></div>
+
+<section id="s1"><h2>1. Overview and principles</h2>
+<p>TENKALA CARE SOFTWARE brings together the management of a health centre in a single program: patients, consultations, care, laboratory, pharmacy, cash desk, staff, logistics, immunisation, medical reference material, telemedicine and reporting to MINSANTÉ (Ministry of Public Health).</p>
+<h3>Key points</h3>
+<ul>
+ <li><b>Offline:</b> the software works without internet. Internet is needed only for updates, DHIS2, telemedicine (Synapse), the AI assistant and web searches.</li>
+ <li><b>Data stays on the device</b> on which it is entered. Each computer or phone has its own data: it is moved by <b>backup</b> and <b>restore</b> (chapter 16).</li>
+ <li><b>Each user has an account</b> (name + PIN code) and sees only the modules authorised for their role.</li>
+ <li><b>Everything is recorded</b> in the activity log.</li>
+</ul>
+<h3>Three ways to use the software</h3>
+<table><tr><th>Version</th><th>Use</th><th>Features</th></tr>
+<tr><td>Windows (installed)</td><td>Main workstation of the centre</td><td>Automatic updates, copies of imported files on disk, AI assistant, camera.</td></tr>
+<tr><td>Phone (app installed from the website)</td><td>Consultation and data entry on the move</td><td>Works offline after it is first opened; updated when opened with internet.</td></tr>
+<tr><td>HTML file opened in a browser</td><td>Troubleshooting, demonstration</td><td>No automatic updates.</td></tr></table>
+</section>
+
+<section id="s2"><h2>2. Installation and updates</h2>
+<h3>Installing on a Windows computer</h3>
+<ol class="steps">
+ <li>On the software’s GitHub site, open <b>Releases</b> and download the file <span class="m">TENKALA-CARE-SOFTWARE-Installation-x.x.x.exe</span>.</li>
+ <li>Run it, choose the installation folder and confirm. A shortcut is created on the desktop.</li>
+ <li>When it starts for the first time, create the administrator account (chapter 3).</li>
+</ol>
+<h3>Installing on a phone</h3>
+<ol class="steps">
+ <li>In Chrome (Android) or Safari (iPhone), open the address of the online software, starting with <span class="m">https://</span>.</li>
+ <li>Android: menu <span class="m">⋮</span> › <b>Install app</b>. iPhone: <span class="m">Share</span> › <b>Add to Home Screen</b>.</li>
+ <li>Open it once with internet; after that it works offline.</li>
+</ol>
+<h3>Updates</h3>
+<p>The Windows version checks for updates by itself 10 seconds after start-up and then every 6 hours. When a new version is ready, a window offers <b>Restart now</b> or <b>Later</b> (installed when the program closes). You can also start the check from <span class="m">File › About › Check for updates</span>, which also shows the installed version and the date of the last update.</p>
+<h3>Manual updates</h3>
+<p>The manual comes with the software and follows its updates. Between two versions, a corrected edition may be published online: each time the software starts with internet, it downloads it and keeps it for offline use. The edition reference is shown at the top of the contents.</p>
+<div class="ast"><b>Tip</b>Make a backup (.json) before accepting an update. Your data is kept, but a safety copy is always wise.</div>
+</section>
+
+<section id="s3"><h2>3. First start, logging in and roles</h2>
+<h3>Creating the first administrator</h3>
+<ol class="steps">
+ <li>Click <b>Create the administrator account</b>.</li>
+ <li>Enter the full name and a PIN code (twice). Remember it: it cannot be recovered.</li>
+ <li>Then enter the centre’s details (chapter 4).</li>
+</ol>
+<div class="att"><b>Important</b>For DÉÏ GRACIA Health Centre, the first administrator must be exactly “Florent Tasso' Ndombou”. Otherwise the software switches to generic mode and removes the information specific to DÉÏ GRACIA (identity, printable forms, booklets).</div>
+<h3>Reading the manual before logging in</h3>
+<p>The manual can be printed or downloaded as a <b>PDF</b> or as an HTML page from its window.</p>
+<p>On the login screen, the <span class="m">📘 User manual</span> button opens this manual without logging in: ideal for the theoretical training of new staff. Once logged in, it remains available from the <span class="m">📘 Manual</span> icon on the toolbar and from the <span class="m">Help</span> menu.</p>
+<h3>Logging in and out</h3>
+<p>Choose your name, enter your PIN and confirm. Your name and role are shown in the box on the right of the toolbar. The red <span class="m">⏻ Exit</span> button ends the session: always use it before leaving the workstation. The <b>Show the PIN code</b> box, under each code field (login, account creation, AI Assistant key), shows what you type; the code is hidden again as soon as the form is sent. Do not use it if someone can see the screen.</p>
+<h3>Creating other accounts</h3>
+<p>On the login screen, <span class="m">Create a new account</span>: an <b>administrator account</b> (two at most) is created without further approval; a <b>user account</b> must be approved by one of the administrators, who chooses their name and types their PIN code.</p>
+<p>Patients registered before this version keep their old code (P00001…); an administrator can give them the MINSANTÉ code with the <span class="m">MINSANTÉ codes for existing patients</span> button in the patient list. The old code remains visible and can still be used to search.</p>
+<h3>Roles</h3>
+<p>Each role (Administrator, Doctor, Nurse, Midwife, Laboratory technician, Pharmacist, Cashier, Human resources, Reception, Logistics, etc.) gives access to a set of modules. The administrator creates the accounts and adjusts access rights in <span class="m">Tools › Users and access rights</span>.</p>
+</section>
+
+<section id="s4"><h2>4. Setting up the centre</h2>
+<ol class="steps">
+ <li><span class="m">Tools › Settings</span>: name of the centre, motto, address, town, telephone, e-mail, person in charge and their position, logo.</li>
+ <li>This information appears on the toolbar and in the header and footer of every printed document (with the QR code).</li>
+ <li><span class="m">Tools › Users and access rights</span>: create one account per staff member with the right role.</li>
+ <li>Pharmacy: create the product catalogue (chapter 8). Staff: enter the employees (chapter 10).</li>
+ <li><span class="m">Tools › Interface configuration</span> (administrator): labels, hidden modules, drop-down lists, notice shown at the top, loading a configuration file (.json).</li>
+</ol>
+</section>
+
+<section id="s5"><h2>5. The main screen</h2>
+<table><tr><th>Area</th><th>Purpose</th></tr>
+<tr><td>Menu bar (at the top, dark background)</td><td>Access to all modules, grouped as: File, Reception and care, Immunisation, Technical facilities, Finance, Staff, Logistics, Documents, Display, Tools, Help. The <b>Tools</b> menu brings together In/formation, Synapse, the AI Assistant and the MINSANTÉ report, followed by the settings. A red number shows items awaiting action (on “Tools”: MINSANTÉ reports to send).</td></tr>
+<tr><td>Toolbar (below it)</td><td>On the left, the centre’s logo, name and motto; then the shortcuts: Home, Dashboard, Patient, Consultation, Test, Invoice, Stock issue, Back up; the patient search; on the right, the logged-in user and the Exit button.</td></tr>
+<tr><td>“Dashboard” panel (on the left)</td><td>Summary of the day (consultations, appointments, inpatients, tests, stock and contract alerts). The “«” button collapses it and “»” opens it again.</td></tr>
+<tr><td>Central window</td><td>The open module. It stays in place: only its content scrolls.</td></tr></table>
+<h3>Customising the toolbar</h3>
+<ul>
+ <li><b>Hide a button:</b> right-click the button › <span class="m">🙈 Hide from the toolbar</span>.</li>
+ <li><b>Add a module:</b> right-click a module in a drop-down menu or a tile on the home page › <span class="m">📌 Show in the toolbar</span>.</li>
+ <li><b>Show it again:</b> right-click an empty part of the bar › choose the button to show again, or <span class="m">↺ Restore the default toolbar</span>.</li>
+ <li>Each user keeps their own toolbar on the device.</li>
+</ul>
+<h3>Moving and resizing windows</h3>
+<ul>
+ <li><b>Move:</b> grab the title bar (central window, data entry windows) or the “Dashboard” header of the side panel, and drag.</li>
+ <li><b>Resize:</b> drag an edge (left, right, bottom) or a corner. The content adapts: single-column forms, scrolling tables, nothing is hidden.</li>
+ <li><b>No overlapping:</b> the central window and the side panel never overlap; a window stops at the edge of the other. To make room, first shrink the other window.</li>
+ <li><b>Quick fit:</b> double-click an edge (left, right, bottom) or a corner: the window extends in that direction up to the neighbouring window or to the edge of the screen.</li>
+ <li><b>Reset:</b> double-click a title bar. Data entry windows (dialog boxes) stay in front.</li>
+</ul>
+<h3>Home (all modules)</h3>
+<p>The <b>Home</b> button shows all the round tiles, sorted by group. Click a tile to open the module.</p>
+<h3>Display</h3>
+<p><span class="m">Display</span> lets you choose the colours (theme) and, on a phone, the “desktop version”.</p>
+<h3>End-of-year holiday theme</h3>
+<p>From <b>20 December to 31 January</b> every year, the software takes on a festive look by itself: a Santa hat on the logos, a string of lights under the menu bar, red and green colours, gently falling snowflakes and stars, and a greeting on the home page and dashboard (for example, from 20 December 2026 to 31 January 2027: “Merry Christmas 2026 and a Happy New Year 2027.”). The <span class="m">Holidays</span> button in Display (also on the login screen) switches between <b>auto</b>, <b>on</b> and <b>off</b>; the <span class="m">❄ Snowflakes</span> button turns off only the snowflakes. The choice is specific to each device; nothing appears in print.</p>
+<h3>Button conventions</h3>
+<p>Solid green button: main action (Save, Approve). White button with a green border: secondary action (Cancel, Print). Red button: deletion or exit. Fields marked <b>*</b> are required.</p>
+</section>
+
+<section id="s6"><h2>6. Patients and care pathway</h2>
+<h3>Registering a patient</h3>
+<ol class="steps">
+ <li>Toolbar › <b>Patient</b> (or <span class="m">Reception and care › Patient registration</span>).</li>
+ <li>Enter the surname, first name, sex, date of birth, <b>mother’s full name</b> and <b>mother’s patient code</b> (if she has one), telephone and address. When you type a surname or first name, the software suggests only names already registered (patients and staff); for the mother, it suggests women already registered and then fills in her patient code automatically. Each suggestion list only offers items of the same kind as the field (no products or diseases in a person’s name). As soon as a patient is selected in a form, their details (code, sex, age, telephone, mother, allergies) appear under the field; the same applies to an employee (staff number, position, hiring and contract end dates). The age is calculated from the date of birth and today’s date (in days for a newborn, in months under 2 years, in years and months up to 5 years).</li>
+ <li>The <b>patient code</b> follows the MINSANTÉ registers: reversed date of birth (YYMMDD), initials of the surname and first name, a hyphen, and the initial of the mother’s name. Example: born 25/03/2013, TCHOUPO Clarisse, mother MBARGA → <span class="m">130325TC-M</span>. The code is shown while you type and is updated if the record is corrected.</li>
+ <li><b>Child without an own code:</b> choose “Child: mother’s code + year of birth”, then enter the mother’s patient code (or select her among the centre’s patients); the code becomes the mother’s code followed by the last two digits of the year of birth (e.g. <span class="m">950704NA-E/26</span>). Identical codes are distinguished by “.2”, “.3”, etc.</li>
+ <li>Save. To find a patient, type their name or code in the toolbar search box.</li>
+ <li>In every form that asks for a <b>Patient</b> (health check-up, consultation, invoice, etc.), click in the field: the list of registered patients appears; type a few letters of the name or code to narrow it, then click the patient.</li>
+</ol>
+<h3>Patient record</h3>
+<p>The record brings together the identity, consultations, tests, prescriptions, hospital stays, invoices and the Synapse (telemedicine) box. The buttons at the top of the record start each procedure.</p>
+<h3>Consultation</h3>
+<ol class="steps">
+ <li>Toolbar › <b>Consultation</b>, then choose the patient.</li>
+ <li>Enter vital signs, reason for consultation, examination findings and diagnosis. In the diagnosis field, type a few letters: <b>ICD-11</b> titles and codes are suggested if ICD-11 has been imported (chapter 13).</li>
+ <li>Add prescriptions and test requests, then save. The prescription and other documents are printed from the consultation.</li>
+</ol>
+<h3>Other care services</h3>
+<p>Depending on access rights: Appointments, Health checks, Emergency department, Treatment room, Day hospital, Hospitalisation (admission, follow-up, discharge, discharge summary), Nursing station, Operating theatre, Physiotherapy, Medical opinions, Medical records. They all work the same way: <b>+ New</b> button, form, save, filterable list.</p>
+</section>
+
+<section id="s7"><h2>7. Technical facilities</h2>
+<p><b>Laboratory:</b> tests requested during a consultation appear in the list of requests. The laboratory technician records the samples and then the results; the status changes to “Done” and the result can be printed.</p>
+<h3>Laboratory module</h3>
+<p>Open it from <span class="m">Technical services › Laboratory</span> or the <b>Test</b> toolbar button. It has four tabs:</p>
+<ol class="steps">
+ <li><b>🔒 Test list</b> — opens only with an administrator’s password; three columns: ① the <b>benches</b> (Haematology, Biochemistry, Parasitology, Serology / Immunology, Bacteriology), ② the <b>tests</b> of the selected bench, ③ the <b>test sheet</b>: usual specimen, parameters according to the expected result type, then price. Nothing is kept until <span class="m">✔ Save the test</span>. For a multi-parameter test (FBC…), a window sets the normal values: general, and if needed male, female, male and female aged 50 and over, child (under 15), newborn, with the interpretation word (e.g. Anaemia).</li>
+ <li><b>Test requests</b> — choose the patient, prescriber and clinical information, then add tests with drop-down lists (bench, then test). For each test, set <b>Accepted</b> or <b>Not accepted</b> (whether the patient agrees to have it done): only accepted tests go to the benches and count in the total; the others stay at the bottom of the request, with an <span class="m">Accept</span> button for later. In the patient record, and in the consultation (below the diagnoses), the <span class="m">🧪 Test request</span> button opens this window without leaving the screen; from the consultation, the prescriber and diagnoses are carried over. In every window, the ↑ ↓ keys (and Page Up / Page Down) scroll the content.</li>
+ <li><b>Bench worklist</b> — tests to perform, filtered by bench, with <span class="m">Enter result</span>: the window includes the <b>receipt or proof-of-payment number</b> (the patient’s invoices are suggested; a warning appears if it is missing); value read and comment per parameter, normal values adapted to sex and age, Low / High and a suggested (editable) interpretation. No comment or interpretation in biochemistry. Missing values are flagged when saving and when closing; if their absence is confirmed, they are not printed. <span class="m">👁 Result preview</span> shows the result before saving.</li>
+ <li><b>Results and reports</b> — results of the same patient released on the same day are combined on a single report, ordered by bench. <span class="m">👁 Preview</span> (one test) and <span class="m">👁 Full report preview</span> open with a zoom; <span class="m">Print…</span> uses the software’s page layout (letterhead, footer, A4 or A5, no frame).</li>
+</ol>
+<p>Bacteriology (HVS, MSU, urethral swab, pus, stool culture, semen culture + AST): macroscopy, microscopy, Gram stain, culture on routine media, antibiotic susceptibility; the report prints “item: result”. Serology: quantitative tests (e.g. CRP 0 – 5 mg/L) and rapid tests with a comment; IgG / IgM tests give two lines, without normal values. Normal values follow the centre’s laboratory sheets; the laboratory supervisor adjusts them in the test sheet.</p>
+<p><b>Imaging, Blood bank, Sterilisation:</b> same principle (request, procedure, result).</p>
+</section>
+
+<section id="s8"><h2>8. Pharmacy and stock</h2>
+<h3>Product catalogue</h3>
+<p><span class="m">Technical facilities › Pharmacy</span>: add each product (name, strength, dosage form, category, price, alert threshold), one at a time or as a list with <b>Add several products</b>.</p>
+<h3>Receipts and issues</h3>
+<ol class="steps">
+ <li><b>+ Receipt (delivery)</b>: product, quantity, date, batch number, expiry date, supplier.</li>
+ <li><b>− Issue</b>: dispensing, use in care, loss, expiry, etc. The toolbar also offers <b>Stock issue</b>.</li>
+ <li>Sales invoiced at the cash desk are deducted from stock automatically.</li>
+ <li><b>Stock-take</b>: enter the quantity counted; the difference is corrected and recorded.</li>
+</ol>
+<div class="pt"><b>Supplier invoice read by the AI</b>The <span class="m">🤖 Supplier invoice</span> button reads the photo or PDF of an invoice and proposes stock receipt lines for you to check (chapter 15).</div>
+<p>The “products below the threshold” and “batches nearing expiry” alerts appear on the dashboard.</p>
+</section>
+
+<section id="s9"><h2>9. Cash desk, invoicing and finance</h2>
+<ol class="steps">
+ <li>Toolbar › <b>Invoice</b>: choose the patient, add the procedures and products, and apply any coverage (insurance).</li>
+ <li>Take payment (in full or in part) and print the receipt.</li>
+ <li>Unpaid invoices remain flagged in <span class="m">Finance › Cash desk and invoicing</span>.</li>
+</ol>
+<p>Other screens: Hospital billing, Insurance and coverage, Income and expenditure (accounting, opening balance sheet), Doctors’ fees, Reports (activity and income by period, which can be exported and printed).</p>
+</section>
+
+<section id="s10"><h2>10. Staff</h2>
+<p>The <span class="m">Staff</span> menu opens staff management with its tabs: Staff files, Recruitment, Payroll, Documents, Tools.</p>
+<h3>Creating an employee file</h3>
+<ol class="steps">
+ <li><b>+ New employee</b>, then complete the identity, contract, salary, positions held and successive contracts.</li>
+ <li><b>Photo:</b> in “Photo and additional information”, use <span class="m">🖼️ Choose</span> for an existing photo or <span class="m">📷 Camera</span> to take one with the computer’s camera (place the face inside the dotted frame, then Capture). It is cropped automatically to 3.5 × 4.5 cm.</li>
+ <li><b>With the AI:</b> <span class="m">🤖 Fill in from documents</span> reads the ID card, birth certificate, diplomas and contract, and fills in the empty fields, highlighted in yellow for checking (chapter 15).</li>
+ <li>Click <b>Save</b>.</li>
+</ol>
+<p>From the list: File, Payroll, Certificate of service / of employment, Individual record, Professional ID card. Also: contract due dates, recruitment of candidates, leave and absences, on-call rota, payslips and their history.</p>
+<h3>Hiring a candidate</h3>
+<p>In <b>Recruitment</b>, open the selected application, enter the <b>hiring date</b> (required), then click <span class="m">✔ Hire: create the employee file</span>. The file opens with this date as the start of the first position and of the probationary period (end calculated at 3 months). The dates can be changed at any time in the file (positions held and successive contracts).</p>
+<h3>Hiring and contract end dates</h3>
+<p>Each employee file has two fields: <b>Hiring date</b> and <b>Contract end date</b>. No date is filled in automatically any more: enter them yourself. Both dates are used in the <b>certificate of service</b> (“since…”, and “until…” for a fixed-term contract or probation) and in the <b>certificate of employment</b> (“from… to…”). On the <span class="m">Certificate / Attestation</span> screen they appear pre-filled and can be corrected; the <span class="m">Save these dates in the file</span> button updates the file. If a date is missing, a warning is shown and the document displays dotted lines to complete.</p>
+</section>
+
+<section id="s11"><h2>11. Logistics</h2>
+<p>Statement of needs (printable forms), Store (non-pharmaceutical items, thresholds), Store movements, Suppliers, Equipment and assets (inventory, warranty, breakdowns), Equipment to acquire, Maintenance, Linen, Catering, Ambulance, Mortuary, Patient feedback.</p>
+</section>
+
+<section id="s12"><h2>12. Immunisation (EPI)</h2>
+<p>The <span class="m">Immunisation</span> button opens the module with its own side menu: Dashboard, Immunisation session, Beneficiaries (children, pregnant women, etc.), Recalls and lost to follow-up, Vaccine stock, Cold chain (temperature readings), Campaigns, AEFI, Monthly report, Immunisation schedule, Online update, Settings.</p>
+<ol class="steps">
+ <li>Register the beneficiary, then open a <b>session</b> and tick the doses administered.</li>
+ <li>The next appointments are calculated according to the EPI schedule; overdue doses appear in <b>Recalls and lost to follow-up</b>.</li>
+ <li>Record the refrigerator temperature twice a day in <b>Cold chain</b>.</li>
+ <li>At the end of the month, produce the <b>monthly report</b>.</li>
+</ol>
+<p>The dashboard panel is collapsed in this module to leave more room; click “» Dashboard” to show it.</p>
+</section>
+
+<section id="s13"><h2>13. In/formation, dictionaries and ICD-11</h2>
+<h3>Library of information sheets</h3>
+<p><span class="m">Tools › In/formation</span> opens the library: common diseases, conditions by theme (18 themes for sub-Saharan Africa), treatment protocols, MINSANTÉ / EPI guidelines, epidemic alerts. The search suggests sheets from the first few letters (“oxy” → oxygen, pinworms, etc.) and offers an internet search if nothing is found. Only administrators create, edit and validate sheets.</p>
+<div class="pt"><b>Language of the sheets</b>In the English interface, the titles and themes of the sheets are shown in English, but their medical content and the built-in glossary remain in French for this version: they are validated reference texts and will be translated after medical review.</div>
+<h3>Underlined medical terms</h3>
+<p><b>Click</b> an underlined term to see its definition. <b>Right-click</b> (computer) or <b>long press</b> (phone) to choose between the built-in dictionary, the sheet, ICD-11 codes, imported dictionaries and the internet. An administrator can select a word and right-click it to add it to the dictionary.</p>
+<h3>Images and attachments of a sheet</h3>
+<ol class="steps">
+ <li>In the sheet, <span class="m">📎 Attach an image or a document</span> (administrator): choose one or more files and enter the caption, source and licence.</li>
+ <li>Images are shown as thumbnails; click to enlarge, move to the next one, or <span class="m">🖨️ Print the image</span>.</li>
+ <li><span class="m">🔎 Search for free images</span> opens image banks that can be reused (CDC, Wikimedia Commons, WHO, etc.).</li>
+</ol>
+<div class="att"><b>Rights and confidentiality</b>Use only royalty-free images, citing the source, or photos taken at the centre with the patient’s written consent, showing no face or identifying feature.</div>
+<h3>ICD-11 (WHO)</h3>
+<ol class="steps">
+ <li>Download the ICD-11 “spreadsheet file” in French from the WHO website (Info › Spreadsheet file, .zip file).</li>
+ <li><span class="m">Documents › ICD-11 classification</span> › <b>Import</b> (administrator), and choose the .zip file without unzipping it.</li>
+ <li>From then on, code searches, diagnosis suggestions and the glossary work offline.</li>
+</ol>
+<h3>Medical dictionaries</h3>
+<p><span class="m">Documents › Medical dictionaries</span>: import Orphanet (French nomenclature pack, orphacode.org), the WHO Essential Medicines List, or a <b>personal list</b> (Excel file with the columns Terme, Définition, Synonymes – the medical glossary supplied with the software is an example). Their definitions are shown offline in In/formation.</p>
+</section>
+
+<section id="s14"><h2>14. Synapse (telemedicine)</h2>
+<div class="att"><b>Before sending anything</b>Obtain the patient’s consent: <b>Consent</b> button, form to complete (the wording adapts to the sex chosen), then print and sign. By default, the patient’s identity is reduced to their initials (Law No. 2024/017).</div>
+<h3>Tele-expertise (request for opinion)</h3>
+<ol class="steps">
+ <li>From the patient record or <span class="m">Tools › Synapse › New request for opinion</span>: the summary is pre-filled from the last consultation.</li>
+ <li>Add photos (files or the computer’s camera) and choose the correspondent.</li>
+ <li>Send by <b>WhatsApp</b> or <b>e-mail</b>; record the reply, then close the request.</li>
+</ol>
+<h3>Video teleconsultation</h3>
+<ol class="steps">
+ <li>Create the teleconsultation; a video-conference link is generated.</li>
+ <li><b>Test the camera and microphone</b>, then send the link to the doctor (WhatsApp or e-mail) and start.</li>
+ <li>Write the report and, if needed, the prescription; both can be printed.</li>
+</ol>
+<p><b>Correspondents</b> tab: doctors and specialists with their WhatsApp number and e-mail.</p>
+</section>
+
+<section id="s15"><h2>15. AI Assistant (Windows version)</h2>
+<p>Claude, Anthropic’s AI, reads documents (photos or PDFs) and pre-fills the software. Internet is needed while reading, and each reading has a cost (a few FCFA per page).</p>
+<h3>Setting up (administrator)</h3>
+<ol class="steps">
+ <li>Create an account on <b>platform.claude.com</b>, add credit and set a monthly spending limit.</li>
+ <li>Create an API key (“Create key”) and copy it.</li>
+ <li><span class="m">Tools › AI Assistant</span> › <b>Key, settings and log</b> tab: paste the key, click <b>Save the key</b>, then <b>Test</b>.</li>
+</ol>
+<div class="att"><b>Key security</b>The key is a password linked to your paid account. It is encrypted by Windows and stays on the computer. Never share it with anyone, never put it on GitHub or in a message. If in doubt, delete it in the Anthropic Console and create a new one.</div>
+<h3>The “AI Assistant” workspace (Tools › AI Assistant)</h3>
+<ol class="steps">
+ <li><b>Documents:</b> <span class="m">📂 Choose from the computer</span> (photos or PDFs) and/or <span class="m">📷 Take with the camera</span>: the computer’s camera, a phone used as a USB webcam, or photos sent over Wi-Fi (chapter 21). Up to 12 pages; ✕ removes a page.</li>
+ <li><b>Processing tool:</b> <b>Sonnet 5.5</b> (recommended, photos and handwriting), <b>Haiku 5.5</b> (economical, clear typed documents) or <b>Opus 5.5</b> (most accurate, damaged documents). The estimated cost per page is shown.</li>
+ <li><b>Form to complete:</b> New employee file, New patient (identity), Supplier invoice → stock receipt, or Any other form in the software.</li>
+ <li>Tick the consent of the person concerned, then <span class="m">🤖 Read and fill in the record</span>. The form opens pre-filled; the fields filled in are highlighted in yellow. Check, correct, then save.</li>
+</ol>
+<h3>Filling in any form</h3>
+<p>All the standard forms in the software (appointment, supplier, equipment, leave, consultation, etc.) have a <span class="m">🤖 Fill in with the AI</span> button at the bottom of their window (Windows version). Load the documents or photograph them, tick the consent box, then <b>Read and fill in</b>: only empty fields are completed, and values already entered are never replaced. Documents loaded in the workspace are included automatically.</p>
+<h3>Shortcuts</h3>
+<ul>
+ <li><b>Employee file:</b> <span class="m">🤖 Fill in from documents</span> in the file.</li>
+ <li><b>Supplier invoice:</b> <span class="m">Pharmacy › Stock › 🤖 Supplier invoice</span>.</li>
+</ul>
+<div class="ast"><b>Golden rule</b>The AI can get a figure or a name wrong: always read through before saving. The assistant’s log shows each reading and its estimated cost.</div>
+</section>
+
+<section id="s16"><h2>16. Backup, transfer and data security</h2>
+<h3>Backing up</h3>
+<ol class="steps">
+ <li>Toolbar › <b>Back up</b> (or <span class="m">File › Back up the data</span>): a <span class="m">.json</span> file is created.</li>
+ <li>Store it on a USB stick or other storage medium, <b>at least once a week</b> and before every update.</li>
+</ol>
+<h3>Restoring or moving to another device</h3>
+<p><span class="m">File › Open a backup</span> (administrator): choose the .json file. <b>Warning:</b> restoring replaces the data on the device. For a phone, send yourself the file (WhatsApp, cable), save it, then restore it in the app.</p>
+<h3>Imported files (Windows version)</h3>
+<p>Sheet images, Synapse photos, ICD-11 and dictionaries are copied automatically to <span class="m">Documents\TENKALA CARE SOFTWARE\Fichiers</span>. If the internal copy disappears, the software recovers it from this folder. The path and an “Open the folder” button are shown in <span class="m">File › About</span>. Include this folder in your backups. Sheet images can also be exported and imported from <span class="m">In/formation › Data and images</span>.</p>
+<div class="att"><b>Confidentiality</b>Backups contain health data. Do not leave them in WhatsApp or a mailbox after use; protect the USB stick; give each staff member a personal PIN code; end the session (Exit) when leaving the workstation.</div>
+</section>
+
+<section id="s17"><h2>17. MINSANTÉ reports (DHIS2)</h2>
+<table><tr><th>Report</th><th>Frequency</th><th>Alert</th></tr>
+<tr><td>MAPE (diseases with epidemic potential)</td><td>Weekly</td><td>Every Monday from 9 a.m.</td></tr>
+<tr><td>RMA III (monthly activity report)</td><td>Monthly</td><td>From the 2nd of each month</td></tr></table>
+<ol class="steps">
+ <li><span class="m">Tools › MINSANTÉ report</span> (red number = reports due, also shown on the Tools menu) opens the tabs: To send, Not sent, History of reports sent, Monitoring report (completeness and timeliness).</li>
+ <li>Prepare the data, open DHIS2 (<span class="m">https://dhis-minsante-cm.org</span>) and enter the report. DHIS2 login details are kept in the browser’s password manager, never in the software.</li>
+ <li>Come back and mark the report as <b>sent</b>, with its date.</li>
+</ol>
+</section>
+
+<section id="s18"><h2>18. Documents and forms</h2>
+<p><span class="m">Documents</span>: Management documents (templates to complete), Forms to print, Booklet production. Documents open as an A4 or A5 preview with the letterhead, the title below the rule, a footer with the centre’s contact details and a QR code; use <b>Print</b> or <b>Download (PDF)</b>.</p>
+<p>The <b>certificate of service</b> (employee in post) and the <b>certificate of employment</b> (employee who has left the centre) are in <span class="m">Management documents › Staff</span>: choose the employee and the document is filled in from their file (identity, position, dates, contract).</p>
+<p>The <b>partograph</b> in the ANC booklet follows the current WHO model: 12 hours divided into 30-minute intervals (two columns per hour), an alert line from 4 to 10 cm over 6 hours and an action line 4 hours later, with “number of hours” and “actual time” rows.</p>
+</section>
+
+<section id="s19"><h2>19. Frequently asked questions and troubleshooting</h2>
+<table><tr><th>Situation</th><th>What to do</th></tr>
+<tr><td>I have forgotten my PIN code</td><td>Ask an administrator to reset it in Users and access rights.</td></tr>
+<tr><td>A module does not appear</td><td>Your role does not give access to it: see the administrator.</td></tr>
+<tr><td>“Check for updates” fails</td><td>Read the message: no internet, wrong date and time on the computer, or no version published on GitHub.</td></tr>
+<tr><td>The software’s website does not open on the phone</td><td>Type the full address with https:// and try another network; otherwise open the HTML file directly.</td></tr>
+<tr><td>An image in a sheet is not displayed</td><td>It was attached on another device: import the images (In/formation › Data and images).</td></tr>
+<tr><td>ICD-11 definitions require internet</td><td>This is normal: the WHO file contains only codes and titles. Use the imported dictionaries.</td></tr>
+<tr><td>The AI assistant refuses</td><td>Check the internet connection, the key (Test button), the credit and the spending limit in the Anthropic Console.</td></tr>
+<tr><td>The camera does not open</td><td>Allow camera access in Windows (Settings › Privacy › Camera); check that no other program is using it.</td></tr>
+<tr><td>Part of a screen is still in French</td><td>Some content is entered by users or comes from reference texts (In/formation sheets, legal documents): it is shown as entered. Report any interface label left in French to the software manager.</td></tr></table>
+</section>
+
+<section id="s20"><h2>20. Good daily practice</h2>
+<ul>
+ <li><b>In the morning:</b> log in, check the Dashboard panel (appointments, stock and contract alerts), record the vaccine refrigerator temperature.</li>
+ <li><b>During the day:</b> enter data as you go; one session per staff member; check the patient’s identity before any procedure.</li>
+ <li><b>In the evening:</b> close the cash desk, make a backup, end the session.</li>
+ <li><b>Every Monday:</b> MAPE from 9 a.m. <b>Every month:</b> RMA III from the 2nd, EPI report, stock-take.</li>
+ <li><b>Always:</b> read through what the AI has filled in, respect medical confidentiality and Law No. 2024/017.</li>
+</ul>
+<p style="color:var(--m);font-size:13px;margin-top:18px">Manual supplied with the software, available offline. To be supplemented with your facility’s own procedures.</p>
+</section>
+<section id="s21"><h2>21. Image capture (camera, phone)</h2>
+<p>In <span class="m">Tools › AI Assistant</span>, step 1, the <span class="m">📷 Take with the camera</span> button opens the <b>Image capture</b> panel. Each photo captured or received is added directly to the documents to be read. <span class="m">✕ Close the capture panel</span> closes the panel and switches the camera off.</p>
+<h3>Choosing the camera</h3>
+<p>The <b>Connected cameras</b> list shows all the cameras that can be used (💻 built-in, 🎥 USB, 📱 phone used as a webcam). <span class="m">Use</span> shows it live; <span class="m">★</span> makes it the default for the whole software (staff photos, Synapse, forms). <span class="m">⏹ Close camera</span> switches it off; <span class="m">▶ Open camera</span> switches it on again. The list is updated when a camera is plugged in; otherwise use <span class="m">🔄 Refresh</span>.</p>
+<h3>Phone as a webcam over a USB cable (fixed workstation)</h3>
+<ol class="steps">
+ <li>Install <b>DroidCam</b> (or <b>Iriun Webcam</b>) on the phone and its companion program on the computer; use a USB data cable.</li>
+ <li>On the phone, once only: Settings › About phone › tap <b>Build number</b> 7 times, then Settings › System › Developer options › <b>USB debugging</b>.</li>
+ <li>Connect the cable, allow debugging, open DroidCam on the phone and then DroidCam Client on the computer (USB button, Start).</li>
+ <li>In the capture panel, click <b>Use</b> next to the 📱 “DroidCam” camera, then <b>★</b>. Place the phone on a stand and click <span class="m">📸 Capture</span>.</li>
+</ol>
+<h3>Sending over the local Wi-Fi (photos taken on the move)</h3>
+<ol class="steps">
+ <li>In the capture panel, click <span class="m">▶ Start receiving</span> (Windows version): a QR code is displayed. The first time, allow TENKALA CARE on private networks if Windows asks.</li>
+ <li>The phone, connected to the same Wi-Fi network, scans the code: a page lets you <b>Take a photo</b> or <b>Choose from the gallery</b>.</li>
+ <li>The photos arrive immediately in the documents (a copy is kept in Documents\TENKALA CARE SOFTWARE\Fichiers\telephone). Receiving stops automatically after 20 minutes without any sending.</li>
+</ol>
+<p>Patient photos are covered by medical confidentiality: obtain consent, avoid showing the face unless necessary, and remove them once they have been used.</p>
+</section>
+<section id="s22"><h2>22. Interface language (French / English)</h2>
+<p>TENKALA CARE SOFTWARE can be used in <b>French</b> or in <b>English</b>. The choice is made per device and takes effect immediately (the software reloads; no data is lost).</p>
+<ol class="steps">
+ <li><b>Before logging in:</b> on the login screen, click <span class="m">🌐 Français</span> or <span class="m">English</span> under the manual button.</li>
+ <li><b>Once logged in:</b> <span class="m">Help › 🌐 Français</span> or <span class="m">Help › 🌐 English</span>.</li>
+</ol>
+<div class="pt"><b>What is translated</b>Menus, buttons, forms, messages, tables, the staff and payroll module, accounting and taxation screens, the immunisation module interface, documents printed from the software’s windows (invoices, certificates, payslips, reports), and this manual. Official PDF forms supplied by the authorities keep their original wording. Medical terms follow WHO usage in British English (e.g. anaemia, haemoglobin, paediatrics, immunisation).</div>
+<div class="att"><b>What stays as entered</b>Data entered by users is stored exactly as typed and is never changed. Free text (names, notes, observations) is shown as typed; standard terms taken from the software’s built-in lists (diagnoses, products, units, statuses) are shown in English. In the English interface, information is stored in the same way as in French, so a backup made in one language can be restored in the other. The content of the In/formation sheets and of the built-in glossary remains in French in this version (validated medical texts).</div>
+<div class="ast"><b>Official documents</b>Contracts, certificates and returns follow Cameroonian law (Labour Code, General Tax Code). The English wording is a faithful rendering for bilingual use; if in doubt, the French version issued by the authorities prevails.</div>
+</section>
+<section id="s23"><h2>23. Published (campaign documents)</h2>
+<p><span class="m">Documents › Published</span> brings together the documents used for campaigns: posters, leaflets, circulars and memoranda, guides and protocols, reports, technical sheets, presentations, photos and videos. Everyone can consult them; administrators and staff with access to Management documents can publish, edit and delete them.</p>
+<h3>Publishing a document</h3>
+<ol class="steps">
+ <li><b>+ Publish a document</b>: title, theme (Immunisation, Malaria, HIV / STIs, Nutrition, etc.), type of document, campaign, year, source (MINSANTÉ, WHO, UNICEF, district, etc.), target audience, keywords and description.</li>
+ <li><span class="m">📂 Add files</span>: one or more files (PDF, images, Word, Excel, PowerPoint, video, audio; 50 MB maximum each).</li>
+ <li>Click <b>Publish</b>. The document appears in the list straight away.</li>
+</ol>
+<h3>Finding a document</h3>
+<p>The search works as in In/formation: type the first letters of a word in the title, campaign, keywords, source, year or file name (“meas” finds “measles”), without worrying about accents. Several words narrow the search, and the words found are highlighted. The Theme, Type and Year lists filter the results.</p>
+<h3>Viewing, downloading, printing</h3>
+<p>Click a document to see its details and files. <span class="m">👁 View</span> opens the file in the software (PDF, images, video, audio); <span class="m">⭳ Download</span> saves it; <span class="m">🖨️ Print</span> prints PDFs and images directly. Word, Excel and PowerPoint files are downloaded and then opened with their own program.</p>
+<div class="att"><b>Backing up the files</b>The document details are in the general backup (.json), but the files are not. On Windows, they are also copied to <span class="m">Documents\TENKALA CARE SOFTWARE\Fichiers\publies</span>. To move them to another device: <span class="m">⭳ Export the documents and their files</span>, then, on the other device, <span class="m">⭱ Import an export</span>.</div>
+</section>
+</main>
+</div>
+<script>
+(function(){
+ const S=[...document.querySelectorAll('main section')],toc=document.getElementById('toc'),t2=document.getElementById('toc2'),cover=document.querySelector('.cover'),bR=document.getElementById('bRet');
+ const titre=s=>s.querySelector('h2').textContent;
+ S.forEach((s,k)=>{toc.insertAdjacentHTML('beforeend',`<li data-s="${s.id}"><a href="#${s.id}">${titre(s).replace(/^\d+\.\s*/,'')}</a></li>`);t2.insertAdjacentHTML('beforeend',`<li>${titre(s).replace(/^\d+\.\s*/,'')}</li>`);
+  const p=S[k-1],n=S[k+1];s.insertAdjacentHTML('beforeend',`<div class="pn noprint">${p?`<a href="#${p.id}">← ${titre(p)}</a>`:'<span></span>'}${n?`<a href="#${n.id}">${titre(n)} →</a>`:'<span></span>'}</div>`)});
+ /* home page: chapter tiles */
+ cover.insertAdjacentHTML('afterend',`<div id="accueil" class="noprint"><p style="margin:0 0 10px">Choose a chapter from the list on the left or below. Each chapter is shown on its own; the list stays on the left.</p><div class="cg">${S.map(s=>`<a href="#${s.id}">${titre(s)}</a>`).join('')}</div></div>`);
+ const acc=document.getElementById('accueil'),pile=[];let cur=null;
+ function montrer(id,memo){if(memo!==false&&cur!==id){pile.push(cur);bR.hidden=false}cur=id||null;
+  S.forEach(s=>s.classList.toggle('vue',s.id===cur));cover.style.display=cur?'none':'';acc.style.display=cur?'none':'';
+  toc.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));window.scrollTo(0,0);document.querySelector('main').scrollTop=0}
+ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();const id=a.getAttribute('href').slice(1);montrer(document.getElementById(id)?id:null)});
+ window.retour=()=>{if(!pile.length)return;montrer(pile.pop(),false);bR.hidden=!pile.length};
+ window.allerSommaire=()=>montrer(null);
+ window.filtrer=q=>{q=q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim();let prem=null;S.forEach(s=>{const ok=!q||s.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(q);toc.querySelector(`[data-s="${s.id}"]`).classList.toggle('cache',!ok);if(ok&&!prem)prem=s.id})};
+ document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter'){const l=toc.querySelector('li:not(.cache) a');if(l)l.click()}});
+ window.addEventListener('beforeprint',()=>document.body.classList.add('imp'));window.addEventListener('afterprint',()=>document.body.classList.remove('imp'));
+ montrer(null,false);
+})();
+</script>
+</body>
+</html>
